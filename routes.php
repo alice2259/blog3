@@ -30,7 +30,7 @@
 
   // just a list of the controllers we have and their actions
   // we consider those "allowed" values
-  $controllers = array('pages' => ['home', 'error', 'account'], 
+  $controllers = array('pages' => ['home', 'error', 'account', 'adminAccount'], 
                        'users' => ['register', 'login', 'logout'],
                        'posts' => ['showAll', 'showPost', 'searchPost', 'createPost', 'update', 'delete']);
 
