@@ -1,0 +1,138 @@
+body {
+  font-family: Arial;
+  padding: 0px;
+  background: #FFF;
+  margin: 0px;
+  text-align: center;
+}
+
+/* Header/Blog Title */
+.header {
+  max-width: 100%;
+  height: auto;
+  padding: 0px;
+  margin: 0;
+}
+
+/* Create two unequal columns that floats next to each other */
+/* Left column */
+.leftcolumn { 
+  float: left;
+  width: 70%;
+  padding: 20px 10px 20px 40px;
+}
+
+/* Right column */
+.rightcolumn {
+  float: left;
+  width: 30%;
+  padding: 20px 40px 40px 10px;
+}
+
+/* Author photo & info */
+.authorImg {
+  background-color: #aaa;
+  width: 100%;
+  padding: 20px;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 50%
+}
+
+.authorPostsImg {
+  background-color: #aaa;
+  width: 100%;
+  padding: 40px;
+  margin-left: auto;
+  margin-right: auto;
+
+}
+
+.titleImg {
+  display: flex;
+  justify-content: center;
+  background-color: #aaa;
+  width: 100%;
+  padding: 20px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+
+/* Add a card effect for articles */
+.card {
+  background-color: white;
+  padding: 20px;
+  margin-top: 0px;
+  }
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+  padding: 0px;
+  margin: 0;
+
+}
+
+/* Footer W3 Schools */
+/*.footer {
+  padding: 20px;
+  text-align: center;
+  background: #ddd;
+  margin-top: 20px;
+}*/
+
+/* Responsive layout - when the screen is less than 800px wide, make the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 800px) {
+  .leftcolumn, .rightcolumn { 
+    width: 100%;
+    padding: 0;
+  }
+}
+
+/* footer styling*/
+
+footer {
+    padding: 50px 0px 0px 0px;
+    text-align: center;
+    background: #000;
+    margin: 0px;
+    width:100%;
+}
+
+ .f1 {
+   padding: 0px;
+   margin: 0px;
+   background: #DDD;
+ }
+
+ .f2 {
+   margin: 0px;
+   background: #DDD;
+ }
+
+ .f3 {
+   padding: 0px;
+   margin: 0px;
+   background: #DDD;
+ }
+
+ .f1,
+ .f2,
+ .f3 {
+  -moz-box-sizing: border-box;
+   box-sizing: border-box;
+   display: inline-block;
+   text-align: center;
+   font-size: 12px;
+   padding: 50px 8%;
+   min-width: 300px;
+   width: 33%;
+   margin: 0px;
+ }
+
+.f1 {
+    text-align: left;
+  }
