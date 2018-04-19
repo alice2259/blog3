@@ -1,8 +1,8 @@
 <?php
   class PagesController {
     public function home() {
-      $first_name = 'Jenna';
-      $last_name  = 'Brown';
+      $first_name = 'Alice';
+      $last_name  = 'Creasey';
       require_once('views/pages/home.php');
     }
 
