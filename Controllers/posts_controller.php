@@ -22,4 +22,45 @@
       $searchPosts = Post::search();
       require_once('views/posts/searchPost.php');
     }
-  }
+    
+    public function createPost() {
+      if($_SERVER['REQUEST_METHOD'] == 'GET'){
+          require_once('views/posts/create.php');
+      }
+      else { 
+            Post::create();
+             
+            $posts = Post::all();
+            require_once('views/posts/showAll.php');
+      }
+      
+    }
+    public function update() {
+        
+      if($_SERVER['REQUEST_METHOD'] == 'GET'){
+          if (!isset($_GET['postID']))
+        return call('pages', 'error');
+
+        // we use the given id to get the correct product
+        $post = Post::find($_GET['postID']);
+      
+        require_once('views/posts/show.php');
+        }
+      else
+          { 
+            $id = $_GET['postID'];
+            Post::update($postID);
+                        
+            $posts = Post::all();
+            require_once('views/posts/readAll.php');
+      }
+      
+    }
+    public function delete() {
+            Post::remove($_GET['postID']);
+            
+            $posts = Post::all();
+            require_once('views/posts/readAll.php');
+      }
+    }
+  

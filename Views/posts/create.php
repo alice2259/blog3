@@ -1,9 +1,10 @@
-session_start();
+<?php session_start(); ?>
 
+<h1>CREATE A POST</h1>
 <p>Fill in the following form to upload a new post:</p>
 <form action="" method="POST" class="w3-container" enctype="multipart/form-data">
     
-    <h2>Add New Item</h2>
+    <h2>Create New Post:</h2>
     <p>
         <input class="" type="text" name="title" required autofocus>
         <label>Title</label>

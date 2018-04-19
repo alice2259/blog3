@@ -32,7 +32,7 @@
   // we consider those "allowed" values
   $controllers = array('pages' => ['home', 'error', 'account'], 
                        'users' => ['register', 'login', 'logout'],
-                       'posts' => ['showAll', 'showPost', 'searchPost', 'create']);
+                       'posts' => ['showAll', 'showPost', 'searchPost', 'createPost', 'update', 'delete']);
 
   // check that the requested controller and action are both allowed
   // if someone tries to access something else he will be redirected to the error action of the pages controller
