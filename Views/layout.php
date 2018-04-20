@@ -67,8 +67,8 @@
                     <li><a href='?controller=users&action=login'>Link</a></li>
                     <li><a href='?controller=users&action=login'>Link</a></li>
                     <li><a href='?controller=users&action=login'>Link</a></li>
-                    <li><a href='?controller=users&action=login'>Link</a></li>
                     <li><a href='?controller=users&action=login'>Staff Login</a></li>
+                    <li><a href='?controller=users&action=logout'>Logout</a></li>
                 </ul>
             </div>
           

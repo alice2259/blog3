@@ -12,20 +12,21 @@ session_start();
     }
     
     public function login() {
-      // we expect a url of form ?controller=products&action=login
-      // if it's a GET request display a blank form for the user to login
+      // we expect a url of form ?controller=user&action=login
+      // if the session is not empty, take the logged in user to the account page
         if (!empty($_SESSION)){
                     require_once('views/pages/account.php');
+            // else display a blank form for the user to login, run User::login function
             } else {
                 if ($_SERVER['REQUEST_METHOD'] == 'GET') {
                     require_once('views/pages/login.php'); }
                 else {
                     User::login();
-                    require_once('views/pages/account.php'); }
-            } 
-
-           }
-           
+                    } 
+            }
+    }
+    
+              
      public function logout() {
 //         session_start();
          session_destroy();

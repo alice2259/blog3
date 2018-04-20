@@ -54,36 +54,47 @@ $permissionsID = $_POST['permissionsID'];
 $req->execute();
     }
     
-public function login() {
+public static function login() {
     if (!empty($_POST)) {
         $email = $_POST['email'];
         $password = $_POST['password'];
         $db = Db::getInstance();
-//        $email = ($email);
-//        $password = ($password);
         $req = $db->prepare("SELECT * FROM userTable WHERE email='$email' AND password='$password'");
         $req->execute();
         $user = $req->fetch();
         
         if($user){
             $loggedInUser = new User($user['firstName'], $user['surname'], $user['email'], $user['password'], $user['profilePic'], $user['permissionsID'] );
- 
-//            return new User($user['userID'], $user['firstName'], $user['surname'], $user['email'], $user['password'], $user['profilePic'], $user['permissionsID'] );
-//         $_SESSION["userID"] = $loggedInUser['userID'];
-         $_SESSION["firstName"] = $loggedInUser->firstName;
-         $_SESSION["surname"] = $loggedInUser->surname;
-         $_SESSION["email"] = $loggedInUser->email;
-         $_SESSION["password"] = $loggedInUser->password;
-         $_SESSION["profilePic"] = $loggedInUser->profilePic;
-         $_SESSION["permissionsID"] = $loggedInUser->permissionsID;
-         
-                    return $loggedInUser;
-         }
-        else  {
-            //replace with a more meaningful exception
-            throw new Exception('NOT LOGGED IN');
-            }
+
+//      return new User($user['userID'], $user['firstName'], $user['surname'], $user['email'], $user['password'], $user['profilePic'], $user['permissionsID'] );
+            $_SESSION["firstName"] = $loggedInUser->firstName;
+            $_SESSION["surname"] = $loggedInUser->surname;
+            $_SESSION["email"] = $loggedInUser->email;
+            $_SESSION["password"] = $loggedInUser->password;
+            $_SESSION["profilePic"] = $loggedInUser->profilePic;
+            $_SESSION["permissionsID"] = $loggedInUser->permissionsID;
+
+            user::checkPermissions($loggedInUser);
+            return $loggedInUser;
+
+        }
+    }
+    else  {
+        throw new Exception('NOT LOGGED IN');
+    }
+
+}
+        
+public static function checkPermissions($loggedInUser) {
+    if ($loggedInUser->permissionsID==2) {
+        require_once 'Views/pages/adminAccount.php';
+    }
+    else if ($loggedInUser->permissionsID==1)    {
+        require_once 'Views/pages/account.php';
     }
 }
-  }
+            
+            
+        }
+
 
