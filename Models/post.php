@@ -52,15 +52,36 @@
         if(isset($_POST['search'])){
             $input = $_POST['search'];
             
-            $sql = "SELECT post.postID, post.title, post.userID, post.datePublished, post.headerImage, post.imageCaption, post.content FROM post WHERE post.title LIKE '" . $input . "%';";
+            $sql = "SELECT DISTINCT post.postID, post.title, post.datePublished, post.headerImage, post.imageCaption, post.content, userTable.firstName, " 
+            . "userTable.surname, userTable.profilePic  FROM post "
+            . "INNER JOIN userTable ON post.userID=userTable.userID "  
+            . "INNER JOIN post_Tag ON post.postID=post_Tag.postID "
+            . "INNER JOIN tag ON post_Tag.tagID=tag.tagID "
+            . "WHERE post.title LIKE '%".$input."%' "
+            . "UNION "
+            . "SELECT DISTINCT post.postID, post.title, post.datePublished, post.headerImage, post.imageCaption, post.content, userTable.firstName, " 
+            . "userTable.surname, userTable.profilePic " 
+            . "FROM post "
+            . "INNER JOIN userTable ON post.userID=userTable.userID "  
+            . "INNER JOIN post_Tag ON post.postID=post_Tag.postID " 
+            . "INNER JOIN tag ON post_Tag.tagID=tag.tagID " 
+            . "WHERE userTable.firstName LIKE '%".$input."%' "   
+            . "UNION " 
+            . "SELECT DISTINCT post.postID, post.title, post.datePublished, post.headerImage, post.imageCaption, post.content, userTable.firstName, " 
+            . "userTable.surname, userTable.profilePic "
+            . "FROM post "
+            . "INNER JOIN userTable ON post.userID=userTable.userID "  
+            . "INNER JOIN post_Tag ON post.postID=post_Tag.postID "
+            . "INNER JOIN tag ON post_Tag.tagID=tag.tagID "
+            . "WHERE userTable.surname LIKE '%".$input."%'";
         } else {
-            $sql = "SELECT post.postID, post.title, post.userID, post.datePublished, post.headerImage, post.imageCaption, post.content FROM post ORDER BY post.datePublished DESC;";
+            echo "No posts to display";
         }
         
         $req = $db->query($sql);
         
         foreach($req->fetchAll() as $post) {
-        $list[] = new Post($post['postID'], $post['title'], $post['userID'], $post['datePublished'], $post['headerImage'], $post['imageCaption'], $post['content']);
+        $list[] = new Post($post['postID'], $post['title'], $post['datePublished'], $post['headerImage'], $post['imageCaption'], $post['content'], $post['firstName']);
         }
 
         return $list;
