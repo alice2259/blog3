@@ -12,6 +12,9 @@
       require_once('views/pages/account.php');
     }
     
+    public function adminAccount() {
+      require_once('views/pages/adminAccount.php');
+    }
  }
   
 ?>

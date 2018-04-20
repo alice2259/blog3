@@ -44,7 +44,7 @@
         // we use the given id to get the correct product
         $post = Post::find($_GET['postID']);
       
-        require_once('views/posts/show.php');
+        require_once('views/posts/showPost.php');
         }
       else
           { 
@@ -52,7 +52,7 @@
             Post::update($postID);
                         
             $posts = Post::all();
-            require_once('views/posts/readAll.php');
+            require_once('views/posts/showAll.php');
       }
       
     }
@@ -60,7 +60,7 @@
             Post::remove($_GET['postID']);
             
             $posts = Post::all();
-            require_once('views/posts/readAll.php');
+            require_once('views/posts/showAll.php');
       }
     }
   

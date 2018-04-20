@@ -6,6 +6,7 @@
 
         <link rel="stylesheet" href="https://www.w3schools.com/lib/w3.css">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        <link href="https://fonts.googleapis.com/css?family=Playfair+Display:700,900" rel="stylesheet">
         <link rel="stylesheet" href="views/css/styles.css">
     </head>
     
@@ -21,13 +22,13 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav mr-auto">
                         <li class="nav-item active">
-                            <a class="nav-link" href='?controller=posts&action=showAll'>Posts</a>
+                          <a class="nav-link" href='?controller=posts&action=showAll'>Posts</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Link</a>
+                          <a class="nav-link" href="#">Link</a>
                         </li>
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         Dropdown</a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                     <a class="dropdown-item" href="?controller=users&action=register">Register</a>
@@ -48,23 +49,48 @@
         <?php require_once('routes.php'); ?>
         
         
+        
         <!-- FOOTER -->
-        <footer>
-            <div class="footer">
-                       
-          
-          
-        <!-- footer-social-navigation -->
-
-                <div class="f1">first left</div>
-
-                <div class="f2"><button><a href='?controller=users&action=logout'>Log out</a></button></div>
-
-                <div class="f3"><a href='?controller=users&action=login'>Log in</a></div>
-
+      
+   
+        
+<footer>
+  <div class="container footer">
+      <div class="social">SOCIAL MEDIA ICONS</div>
+      <div id="wrapper" class="row justify-content-center">
+                
+            <div class="col-sm-4 f1" style="border: 0px;">
+                <ul>
+                    <li>BLOG LOGO?</li>
+                    <li>subscriber box</li>
+                </ul>
             </div>
-            Copyright &COPY; <?= date('Y'); ?>
-        </footer>
+          
+            <div class="col-sm-4 f2">
+                <ul>
+                    <li><a href='?controller=users&action=login'>Log in</a></li>
+                    <li><a href='?controller=users&action=login'>Log in</a></li>
+                    <li><a href='?controller=users&action=login'>Log in</a></li>
+                    <li><a href='?controller=users&action=login'>Log in</a></li>
+                    <li><a href='?controller=users&action=login'>Log in</a></li>
+                </ul>
+            </div>
+          
+            <div class="col-sm-4 f3" style="border: 0px;">
+                <ul>
+                    <li><a href='?controller=users&action=login'>Log in</a></li>
+                </ul>
+            </div>
+          
+          
+          </div>
+        
+
+   
+
+    </div>
+</footer>
+        
 
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>

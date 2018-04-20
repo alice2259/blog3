@@ -20,7 +20,7 @@
                         Dropdown</a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                     <a class="dropdown-item" href="?controller=users&action=register">Register</a>
-                    <a class="dropdown-item" href="#">Link</a>
+                    <a class="dropdown-item" href="?controller=users&action=logout">LOGOUT</a>
                 <div class="dropdown-divider"></div>
                     <a class="dropdown-item" href="#">Link</a>
                 </div>
