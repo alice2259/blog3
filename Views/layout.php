@@ -47,19 +47,15 @@
         </header>
         
         <?php require_once('routes.php'); ?>
-        
-        
-        
+       
         <!-- FOOTER -->
-      
-   
-        
+       
 <footer>
-  <div class="container footer">
+  <div class="footer">
       <div class="social">SOCIAL MEDIA ICONS</div>
       <div id="wrapper" class="row justify-content-center">
                 
-            <div class="col-sm-4 f1" style="border: 0px;">
+            <div class="col-sm-4 f1">
                 <ul>
                     <li>BLOG LOGO?</li>
                     <li>subscriber box</li>
@@ -68,17 +64,16 @@
           
             <div class="col-sm-4 f2">
                 <ul>
-                    <li><a href='?controller=users&action=login'>Log in</a></li>
-                    <li><a href='?controller=users&action=login'>Log in</a></li>
-                    <li><a href='?controller=users&action=login'>Log in</a></li>
-                    <li><a href='?controller=users&action=login'>Log in</a></li>
-                    <li><a href='?controller=users&action=login'>Log in</a></li>
+                    <li><a href='?controller=users&action=login'>Link</a></li>
+                    <li><a href='?controller=users&action=login'>Link</a></li>
+                    <li><a href='?controller=users&action=login'>Link</a></li>
+                    <li><a href='?controller=users&action=login'>Link</a></li>
+                    <li><a href='?controller=users&action=login'>Staff Login</a></li>
                 </ul>
             </div>
           
-            <div class="col-sm-4 f3" style="border: 0px;">
-                <ul>
-                    <li><a href='?controller=users&action=login'>Log in</a></li>
+            <div class="col-sm-4 f3">
+                <img class="authorImage" src="Views/images/default/noImage.jpg">
                 </ul>
             </div>
           

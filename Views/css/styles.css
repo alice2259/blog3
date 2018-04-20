@@ -43,7 +43,7 @@ h1, h2, h3, h4, h5, h6 {
   }
 }
 
-.nav-scroller {
+/*.nav-scroller {
   position: relative;
   z-index: 2;
   height: 2.75rem;
@@ -68,7 +68,7 @@ h1, h2, h3, h4, h5, h6 {
   padding-top: .75rem;
   padding-bottom: .75rem;
   font-size: .875rem;
-}
+}*/
 
 .card-img-right {
   height: 100%;
@@ -132,11 +132,13 @@ h1, h2, h3, h4, h5, h6 {
   margin-bottom: 1.25rem;
   color: #999;
 }
-  
+ 
+/* IMAGE FORMATTING */ 
+
 img {
     max-width: 100%;
     max-height: 100%;
-    display: block; /*for the img inside your div */  
+    display: block;  
     margin-left: auto;
     margin-right: auto ;
 }
@@ -161,6 +163,8 @@ img {
   width: 100px; 
   border-radius: 50%;
 }
+
+/* FOOTER FORMATTING */ 
 
 footer {
     padding: 0px;
@@ -207,8 +211,7 @@ footer {
 #wrapper div{
     -webkit-flex:1;
     flex:1;
-    border-left: thin solid #FFF;
-    border-right: thin solid #FFF;
+    border: thin solid #FFF;
 }
 
 ul {
@@ -218,25 +221,28 @@ ul {
 }
 
 .social {
-    
+  padding: 20px;
+  margin: 0px;
+  background: #000;
+  text-align: right;  
 }
 
 /* unvisited link   THESE WILL BE CHANGED! */
 a:link {
-    color: red;
+    color: #FFF;
 }
 
 /* visited link */
 a:visited {
-    color: green;
+    color: darkslategrey;
 }
 
 /* mouse over link */
 a:hover {
-    color: hotpink;
+    color: darkslategray;
 }
 
 /* selected link */
 a:active {
-    color: blue;
+    color: darkslategray;
 }

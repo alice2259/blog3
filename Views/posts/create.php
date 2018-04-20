@@ -1,53 +1,74 @@
 <?php session_start(); ?>
 
-<h1>CREATE A POST</h1>
-<p>Fill in the following form to upload a new post:</p>
-
-<form>
-  <div class="form-group m-5">
-    <label for="exampleFormControlInput1">Email address</label>
-    <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
-  </div>
-  <div class="form-group">
-    <label for="exampleFormControlSelect1">Example select</label>
-    <select class="form-control" id="exampleFormControlSelect1">
-      <option>1</option>
-      <option>2</option>
-      <option>3</option>
-      <option>4</option>
-      <option>5</option>
-    </select>
-  </div>
-  <div class="form-group">
-    <label for="exampleFormControlSelect2">Example multiple select</label>
-    <select multiple class="form-control" id="exampleFormControlSelect2">
-      <option>1</option>
-      <option>2</option>
-      <option>3</option>
-      <option>4</option>
-      <option>5</option>
-    </select>
-  </div>
-  <div class="form-group">
-    <label for="exampleFormControlTextarea1">Example textarea</label>
-    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-  </div>
-</form>
-
-
     
+    <!-- TITLE  -->
     
-  <input type="hidden" 
-	   name="MAX_FILE_SIZE" 
-         value="10000000"
-         />
+<div class="jumbotron p-3 p-md-5">
+    <div class="col-md-6 px-0">
+        <h1 class="display-4 font-italic">Create a Post</h1>
+        <p>Fill in the following form to upload a new post:</p>
+    </div>
+</div>
+    
+<div class="container">
+   
+    <div class="img container-fluid jumbotron text-white rounded bg-dark py-5">
 
-  <input type="file" name="myUploader" class="w3-btn w3-pink" required />
-  <p>
-      <input class="w3-input" type="text" name="imageCaption" required>
-      <label>Image caption</label>      
-  </p>
-  <p>
-    <input class="w3-btn w3-pink" type="submit" value="Upload">
-  </p>
-  
+        <form class="form" action="" method="POST" enctype="multipart/form-data">
+            <div class="form-group">
+                <div class="row">
+
+                    <!-- POST TITLE -->
+                    <div class="col-sm-8">
+                    <input type="text" class="form-control py-3" name="title" placeholder="Title">
+                    </div>
+
+                    <!-- CREATION DATE -->
+                    <div class="col">
+                        <input type="date" class="form-control py-2" name="datePublished">
+                    </div>
+                </div>
+
+                <!-- POST SUB-TITLE -->
+                <div class="form-group pt-3">
+                    <label for="subTitle"></label>
+                    <input type="text" class="form-control" id="subTitle" name="imageCaption" placeholder="Sub-title">
+                </div>
+
+                <!-- POST CONTENT INPUT -->
+                <div class="form-group pt-2">
+                    <label for="exampleFormControlTextarea1"></label>
+                    <textarea class="form-control" id="exampleFormControlTextarea1" name="content" placeholder="Enter Blog content here..." rows="20"></textarea>
+                </div>
+
+                <!-- AUTHOR  (incase we can't do it from a session) -->
+                <div class="form-group col-sm-3 py-3">
+                    <label for="author"></label>
+                    <select class="form-control" name="userID" id="author">
+                            <option>SELECT AUTHOR</option>
+                            <option value="2">Alice</option>
+                            <option value="3">Faye</option>
+                            <option value="1">Jenna</option>
+                            <option value="4"> Lucy</option>
+                        </select>
+                </div>
+
+                <!-- UPLOAD IMAGE -->
+                <div class="form-group col-sm-3">
+                    <P>Upload an image</p>
+                    <input  type="hidden" 
+                            name="MAX_FILE_SIZE" 
+                            value="10000000" />
+
+                    <input type="file" name="headerImage" value="send" required />
+                </div>    
+
+
+                <!-- SUBMIT POST - BUTTON -->
+                <div>    
+                <input role="button" class="btn btn-default" type="submit" value="Upload Post">
+                </div>
+            </div>
+        </form> 
+    </div>
+</div>

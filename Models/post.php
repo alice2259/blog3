@@ -101,7 +101,7 @@
             $req->bindParam(':userID', $userID);
             $req->bindParam(':content', $content);
             $req->bindParam(':datePublished', $datePublished);
-//            $req->bindParam(':headerImage', $headerImage);
+            $req->bindParam(':headerImage', $headerImage);
             $req->bindParam(':imageCaption', $imageCaption);
 
             if(isset($_POST['title'])&& $_POST['title']!=""){
@@ -120,21 +120,23 @@
                 $filteredImageCaption = filter_input(INPUT_POST,'imageCaption', FILTER_SANITIZE_SPECIAL_CHARS);
             }
             $title = $filteredTitle;
-            $userID = $_SESSION["userID"];
+            $userID = $_POST['userID'];
+//            $userID = $_SESSION["userID"];
             $content = $filteredContent;
             $datePublished = $filteredDatePublished;
-//            $headerImage = $_POST['headerImage'];
+            $headerImage = ($_FILES['headerImage']['name']);
             $imageCaption = $filteredImageCaption;
             $req->execute();
 
-            //upload product image
-            Post::uploadFile($title);
+//            echo var_dump($headerImage);  SO CONFUSED BECAUSE VARD_DUMP SAYS IT IS A STRING
+            
+            Post::uploadFile($headerImage);
         }
-       
+      
         const AllowedTypes = ['image/jpeg', 'image/jpg'];
-        const InputKey = 'myUploader';
+        const InputKey = 'headerImage';
 
-        public static function uploadFile(string $imageCaption) {
+        public static function uploadFile(string $headerImage) {
         if (empty($_FILES[self::InputKey])) {
             trigger_error("File Missing!");
         }
@@ -147,11 +149,8 @@
         
         $tempFile= $_FILES[self::InputKey]['tmp_name'];
         $path = "C:/xampp/htdocs/blog3/views/images/";
-	$destinationFile = $path . $imageCaption . '.jpeg';
+	$destinationFile = $path . $headerImage;
         
-        if (!move_uploaded_file($tmpFile, $permFile)) {
-            die ("Handle Error!");
-        }
         if (!move_uploaded_file($tempFile, $destinationFile)) {
 		trigger_error("Handle Error");
 	}
