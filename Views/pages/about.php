@@ -8,6 +8,8 @@
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-black.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link href="../css/styles.css" rel="stylesheet" type="text/css"/>
+
 
 <div class="w3-display-container w3-animate-opacity">
   <img src="../images/timebackground.jpg" alt="time" style="width:100%; min-height:100px; max-height:300px;">
@@ -39,28 +41,32 @@
     <div class="w3-quarter">
         <img src="../images/jennaBlog.JPG" alt="#" style="width:45%" class="w3-circle w3-hover-opacity">
         <h3>Jenna Brown</h3>
-        <p>Web Designer</p>
+        <h4>Web Designer</h4>
+        <br><p>“it's a smile, it's a kiss, it's a sip of wine ... it's summertime!”</p>
     </div>
     <div class="w3-quarter">
         <img src="../images/lucyBlog.jpg" alt="#" style="width:45%" class="w3-circle w3-hover-opacity">
         <h3>Lucy Skowron</h3>
-        <p>Boss man</p>
+        <h4>Boss man</h4>
+        <br><p>“I cook with wine, sometimes I even add it to the food.”</p>
     </div>
     <div class="w3-quarter">
         <img src="../images/aliceBlog.jpg" alt="#" style="width:45%" class="w3-circle w3-hover-opacity">
         <h3>Alice Creasey</h3>
-        <p>Support</p>
+        <h4>Support</h4>
+        <br><p>“Either give me more wine or leave me alone.”</p>
     </div>
     <div class="w3-quarter">
         <img src="../images/faye.jpg" alt="#" style="width:45%" class="w3-circle w3-hover-opacity">
         <h3>Faye Hyland</h3>
-        <p>Fixer</p>
+        <h4>Fixer</h4>
+        <br><p>"In vino veritas"</p>
     </div>
     </div>
 </div>
 
 <!--OTHER-->
-<div class="w3-row-padding w3-padding-64 w3-theme-l1" id="work">
+<div class="w3-row-padding w3-padding-64 w3-theme-l1" id="work"> 
     <!--<div class="w3-quarter">-->
         <h2>Our Work</h2>
         <p> Here at TimeTrips.com we have a lust for adventures. 
@@ -76,7 +82,6 @@
       <div class="w3-container">
       <h3>Past</h3>
       <p>Blablabla</p>
-      <p>Blablabla</p>
       </div>
       </div>
     </div>
@@ -86,7 +91,6 @@
       <img src="/w3images/lights.jpg" alt="Cinque Terre" style="width:100%">
       <div class="w3-container">
       <h3>Present</h3>
-      <p>Blablabla</p>
       <p>Blablabla</p>
       </div>
       </div>
