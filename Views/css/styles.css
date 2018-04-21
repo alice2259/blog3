@@ -3,136 +3,230 @@ body {
   padding: 0px;
   background: #FFF;
   margin: 0px;
-  text-align: center;
+  text-align: left;
 }
 
-/* Header/Blog Title */
-.header {
-  max-width: 100%;
-  height: auto;
-  padding: 0px;
-  margin: 0;
-}
-
-/* Create two unequal columns that floats next to each other */
-/* Left column */
-.leftcolumn { 
-  float: left;
-  width: 70%;
-  padding: 20px 10px 20px 40px;
-}
-
-/* Right column */
-.rightcolumn {
-  float: left;
-  width: 30%;
-  padding: 20px 40px 40px 10px;
-}
-
-/* Author photo & info */
-.authorImg {
-  background-color: #aaa;
-  width: 100%;
-  padding: 20px;
-  margin-left: auto;
-  margin-right: auto;
-  border-radius: 50%
-}
-
-.authorPostsImg {
-  background-color: #aaa;
-  width: 100%;
-  padding: 40px;
-  margin-left: auto;
-  margin-right: auto;
-
-}
-
-.titleImg {
-  display: flex;
-  justify-content: center;
-  background-color: #aaa;
-  width: 100%;
-  padding: 20px;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-
-/* Add a card effect for articles */
-.card {
-  background-color: white;
-  padding: 20px;
-  margin-top: 0px;
-  }
-
-/* Clear floats after the columns */
-.row:after {
-  content: "";
-  display: table;
-  clear: both;
-  padding: 0px;
-  margin: 0;
-
-}
-
-/* Footer W3 Schools */
-/*.footer {
-  padding: 20px;
-  text-align: center;
-  background: #ddd;
-  margin-top: 20px;
-}*/
-
-/* Responsive layout - when the screen is less than 800px wide, make the two columns stack on top of each other instead of next to each other */
-@media screen and (max-width: 800px) {
-  .leftcolumn, .rightcolumn { 
-    width: 100%;
+hr {
+    display: block;
+    border: none;
+    height: 4px;
+    color: #000;
+    background-color: #000;
+    margin: 1em 0;
     padding: 0;
+}
+
+.blog-header {
+  line-height: 1;
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.blog-header-logo {
+  font-family: "Playfair Display", Georgia, "Times New Roman", serif;
+  font-size: 2.25rem;
+}
+
+.blog-header-logo:hover {
+  text-decoration: none;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: "Playfair Display", Georgia, "Times New Roman", serif;
+}
+
+.display-4 {
+  font-size: 2.5rem;
+}
+@media (min-width: 768px) {
+  .display-4 {
+    font-size: 3rem;
   }
 }
 
-/* footer styling*/
+.card-img-right {
+  height: 100%;
+  border-radius: 0 3px 3px 0;
+}
+
+.flex-auto {
+  -ms-flex: 0 0 auto;
+  -webkit-box-flex: 0;
+  flex: 0 0 auto;
+}
+
+.h-250 { height: 250px; }
+@media (min-width: 768px) {
+  .h-md-250 { height: 250px; }
+}
+
+.border-top { border-top: 1px solid #e5e5e5; }
+.border-bottom { border-bottom: 1px solid #e5e5e5; }
+
+.box-shadow { box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05); }
+
+/*
+ * Blog name and description
+ */
+.blog-title {
+  margin-bottom: 0;
+  font-size: 2rem;
+  font-weight: 400;
+}
+.blog-description {
+  font-size: 1.1rem;
+  color: #999;
+}
+
+@media (min-width: 40em) {
+  .blog-title {
+    font-size: 3.5rem;
+  }
+}
+
+/* Pagination */
+.blog-pagination {
+  margin-bottom: 4rem;
+}
+.blog-pagination > .btn {
+  border-radius: 2rem;
+}
+
+/* BLOG POSTS */
+
+
+.blog-post {
+  margin-bottom: 4rem;
+}
+.blog-post-title {
+  margin-bottom: .25rem;
+  font-size: 2rem;
+}
+.blog-post-meta {
+  margin-bottom: 1.25rem;
+  color: #999;
+}
+ 
+/* IMAGE FORMATTING */ 
+
+img {
+    max-width: 100%;
+    max-height: 100%;
+    display: block;  
+    margin-left: auto;
+    margin-right: auto ;
+}
+
+.portrait {
+    height: 80px;
+    width: 30px;
+}
+
+.landscape {
+    height: 30px;
+    width: 80px;
+}
+
+.square {
+    height: 75px;
+    width: 75px;
+}
+
+.authorImage {
+  height: 100px;
+  width: 100px; 
+  border-radius: 50%;
+}
+
+/* FOOTER FORMATTING */ 
 
 footer {
-    padding: 50px 0px 0px 0px;
+    padding: 0px;
     text-align: center;
-    background: #000;
+    background: #e5e5e5;
     margin: 0px;
     width:100%;
+    left: 0;
+    bottom: 0;
 }
 
- .f1 {
+ .f1, .f2, .f3, .f4 {
    padding: 0px;
    margin: 0px;
-   background: #DDD;
- }
-
- .f2 {
-   margin: 0px;
-   background: #DDD;
- }
-
- .f3 {
-   padding: 0px;
-   margin: 0px;
-   background: #DDD;
+   background: #e5e5e5;
+   text-align: left;
  }
 
  .f1,
  .f2,
- .f3 {
+ .f3,
+ .f4 {
   -moz-box-sizing: border-box;
    box-sizing: border-box;
    display: inline-block;
+   flex-direction: column;
    text-align: center;
    font-size: 12px;
    padding: 50px 8%;
    min-width: 300px;
-   width: 33%;
+   width: 25%;
    margin: 0px;
  }
+ 
+ #wrapper{
+    display:-webkit-flex;
+    -webkit-justify-content:center;
 
-.f1 {
-    text-align: left;
-  }
+    display:flex;
+    justify-content:center;
+
+}
+
+#wrapper div{
+    -webkit-flex:1;
+    flex:1;
+    border: thin solid #FFF;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.social {
+  padding: 20px;
+  margin: 0px;
+  background: #000;
+  text-align: right;  
+}
+
+.homeLog {
+  padding: 4px;
+  margin: 0px;
+  background: #000;
+  text-align: right;
+  font-family: sans-serif;
+  color: #FFF;
+  font-size: 10px;
+}
+
+
+/* unvisited link   THESE WILL BE CHANGED! */
+a:link {
+    color: #304D6D;
+}
+
+/* visited link */
+a:visited {
+    color: #82A0BC;
+}
+
+/* mouse over link */
+a:hover {
+    color: darkslategray;
+}
+
+/* selected link */
+a:active {
+    color: darkslategray;
+}
