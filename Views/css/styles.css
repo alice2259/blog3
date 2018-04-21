@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css?family=Barrio|Roboto');
+
 body {
   font-family: Arial;
   padding: 0px;
@@ -116,6 +118,34 @@ img {
     margin-right: auto ;
 }
 
+/* showAll.php IMAGE GRID */
+
+.imageBox {
+
+  width: 300px;
+  height: auto;
+}
+
+.gallery {
+    display: inline-block;
+    border: 3px solid black;
+    box-shadow: 10px 10px 5px grey;
+}
+
+.gallery a:link { color: #000; }
+.gallery a:visited { color: #000; }
+.gallery a:active { color: #000; }
+
+.galleryCaption {
+    font: 30px 'Barrio', cursive;
+}
+
+galleryDate {
+    font-weight:bold;
+    text-align: left;
+    font: 15px 'Roboto', sans-serif;
+}
+
 .portrait {
     height: 80px;
     width: 30px;
@@ -231,15 +261,4 @@ a:active {
     color: darkslategray;
 }
 
-/* showAll.php IMAGE GRID */
 
-.imageBox {
-
-  width: 300px;
-  height: auto;
-}
-
-#thumbnail {
-    height:auto;
-    width: 400px;
-}
