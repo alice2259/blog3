@@ -17,6 +17,17 @@
       $this->profilePic     = $profilePic;
       $this->permissionsID  = $permissionsID;
     }
+    
+    public static function checkPassword()  {
+        if (isset($_POST['confirmPassword']))   {
+            if ($_POST['password']==$_POST['confirmPassword']) {
+                User::insertUser();
+            }
+            else {
+                echo '<p style="text-align: center">Oops your passwords don\'t match!</p>';
+            }
+        }
+    }
 
     public static function insertUser() {
     $db = Db::getInstance();
@@ -27,32 +38,20 @@
     $req->bindParam(':password', $password);
     $req->bindParam(':permissionsID', $permissionsID);
 
-// set parameters and execute
-    if(isset($_POST['firstName'])&& $_POST['firstName']!=""){
-        $filteredFirstName = filter_input(INPUT_POST,'firstName', FILTER_SANITIZE_SPECIAL_CHARS);
+// filter $_POST
+    if(isset($_POST)) {
+        $filteredPost = filter_input_array(INPUT_POST, FILTER_SANITIZE_SPECIAL_CHARS);
     }
-    if(isset($_POST['surname'])&& $_POST['surname']!=""){
-        $filteredSurname = filter_input(INPUT_POST,'surname', FILTER_SANITIZE_SPECIAL_CHARS);
-    }
-    if(isset($_POST['email'])&& $_POST['email']!=""){
-        $filteredEmail = filter_input(INPUT_POST,'email', FILTER_SANITIZE_SPECIAL_CHARS);
-    }
-    if(isset($_POST['password'])&& $_POST['password']!=""){
-        $filteredPassword = filter_input(INPUT_POST,'password', FILTER_SANITIZE_SPECIAL_CHARS);
-    }
+    $firstName = $filteredPost['firstName'];
+    $surname = $filteredPost['surname'];
+    $email = $filteredPost['email'];
+    $password = $filteredPost['password'];
+    $permissionsID = $filteredPost['permissionsID'];
     
-//    if(isset($_POST['permissionsID'])&& $_POST['permissionsID']!=""){
-//        $permissionsID = $_POST['permissionsID'];
-    
-
-    $firstName = $filteredFirstName;
-    $surname = $filteredSurname;
-    $email = $filteredEmail;
-    $password = $filteredPassword;
-    $permissionsID = $_POST['permissionsID'];
-
     $req->execute();
+    echo '<p style="text-align: center">Great! '.$firstName.' has been registered</p>';
     }
+    
     
     public static function login() {
         if (!empty($_POST)) {

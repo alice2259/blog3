@@ -3,12 +3,11 @@ session_start();
   class UsersController {
     public function register() {
       if($_SESSION['permissionsID']==2){
-          require_once('views/users/register.php');
-          User::insertUser();
-      }
-      else { 
-            require_once('views/pages/adminAccount.php');
-      }
+            require_once('views/users/register.php');
+            if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+            User::checkPassword();
+            }
+        }
     }
     
     public function login() {

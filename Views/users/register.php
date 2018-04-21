@@ -24,27 +24,17 @@
                     <br>
                     <input class="form-control" id="password" name="password" placeholder="Password" type="password" required>
                     <br>
-<!--                    <input class="form-control" id="password" name="confirmpassword" placeholder="Confirm password" type="password" required>
-                    <br>-->
+                    <input class="form-control" id="password" name="confirmPassword" placeholder="Confirm password" type="password" required>
+                    <br>
                     <input type="radio" name="permissionsID" value="1"> Blogger 
                     <br>
                     <input type="radio" name="permissionsID" value="2"> Admin 
                     <br>
-<!--            </fieldset>    
-            <fieldset> 
--->                <div class="form-group">
-                    <button class="btn btn-default" type="submit">Submit</button>  <!--either refresh the page or redirect to my account page-->
+                    <div class="form-group">
+                        <button class="btn btn-default" type="submit">Submit</button>
                     <br><br>
                     <button class="btn btn-default" type="reset">Reset</button>  <!--either refresh the page or redirect to my account page-->
                 </div>
-<!--            </fieldset>  -->
-             
-            <h6 class="text-center"> Already registered? <a href="?controller=pages&action=login"> Click here. </a></h6>   
-            <h6 class="text-center"> Terms & Conditions <a href="#"> Click here. </a></h6>
-<!--            <h6 class="text-center"> Click to subscribe <input type="radio" name="T&C" value="Subscribe"></h6>-->
-
-
-
             </div>
         </div> 
     </form>
