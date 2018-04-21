@@ -2,4 +2,7 @@
 
 if (!empty($_SESSION)){
     echo "<p>Welcome ". $_SESSION['firstName']."</p>"; }
+    else {
+    echo "<p>Hi Guest</p>";}
+    
 ?>
