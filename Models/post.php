@@ -72,6 +72,7 @@
             . "WHERE post.title LIKE '%".$input."%' "
             . "UNION "
             . "SELECT DISTINCT post.postID, post.title, userTable.userID, post.datePublished, post.headerImage, post.imageCaption, post.content, userTable.profilePic, userTable.firstName, userTable.surname FROM post "
+
             . "INNER JOIN userTable ON post.userID=userTable.userID "  
             . "INNER JOIN post_Tag ON post.postID=post_Tag.postID " 
             . "INNER JOIN tag ON post_Tag.tagID=tag.tagID " 
