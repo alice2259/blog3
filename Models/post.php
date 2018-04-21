@@ -9,8 +9,11 @@
     public $headerImage;
     public $imageCaption;
     public $content;
+    public $profilePic;
+    public $firstName;
+    public $surname;
 
-    public function __construct($postID, $title, $userID, $datePublished, $headerImage, $imageCaption, $content) {
+    public function __construct($postID, $title, $userID, $datePublished, $headerImage, $imageCaption, $content, $profilePic, $firstName, $surname) {
       $this->postID         = $postID;
       $this->title          = $title;
       $this->userID         = $userID;
@@ -18,16 +21,24 @@
       $this->headerImage    = $headerImage;
       $this->imageCaption   = $imageCaption;
       $this->content        = $content;
+      $this->profilePic     = $profilePic;
+      $this->firstName      = $firstName;
+      $this->surname        = $surname;
+      
+      // This just takes the weird 2018-04-22 date type My SQL gives us and assigns it back in a a nice date format
+      $formatDate = date( 'dS F, Y', strtotime($this->datePublished));
+      $this->datePublished  = $formatDate;
     }
 
     // DISPLAY ALL POSTS
     public static function all() {
       $list = [];
       $db = Db::getInstance();
-      $req = $db->query('SELECT * FROM post ORDER BY post.datePublished DESC;');
+      $req = $db->query('SELECT post.*, userTable.firstName, userTable.surname, userTable.profilePic FROM post 
+                        INNER JOIN userTable ON post.userID=userTable.userID ORDER BY post.datePublished DESC;');
 
       foreach($req->fetchAll() as $post) {
-      $list[] = new Post($post['postID'], $post['title'], $post['userID'], $post['datePublished'], $post['headerImage'], $post['imageCaption'], $post['content']);
+      $list[] = new Post($post['postID'], $post['title'], $post['userID'], $post['datePublished'], $post['headerImage'], $post['imageCaption'], $post['content'], $post['profilePic'], $post['firstName'], $post['surname']);
       }
       return $list;
     }
@@ -37,15 +48,16 @@
       $db = Db::getInstance();
       // we make sure $id is an integer
       $id = intval($id);
-      $req = $db->prepare('SELECT * FROM post WHERE postID = :id');
+      $req = $db->prepare('SELECT post.*, userTable.firstName, userTable.surname, userTable.profilePic FROM post 
+                            INNER JOIN userTable ON post.userID=userTable.userID WHERE postID = :id');
       // the query was prepared, now we replace :id with our actual $id value
       $req->execute(array('id' => $id));
       $post = $req->fetch();
 
-      return new Post($post['postID'], $post['title'], $post['userID'], $post['datePublished'], $post['headerImage'], $post['imageCaption'], $post['content']);
+      return new Post($post['postID'], $post['title'], $post['userID'], $post['datePublished'], $post['headerImage'], $post['imageCaption'], $post['content'], $post['profilePic'], $post['firstName'], $post['surname']);
     }
   
-    // SEARCH ALL POSTS VIA AN INPUT KEYWORD
+    // SEARCH ALL POSTS VIA AN INPUT KEYWORD ///  THIS NEEDS UPDATING BECAUSE OF THE 3 NEW USER INPUTSSS!!!
     public static function search() {
       $list = [];
       $db = Db::getInstance();
@@ -61,31 +73,31 @@
         $req = $db->query($sql);
         
         foreach($req->fetchAll() as $post) {
-        $list[] = new Post($post['postID'], $post['title'], $post['userID'], $post['datePublished'], $post['headerImage'], $post['imageCaption'], $post['content']);
+        $list[] = new Post($post['postID'], $post['title'], $post['userID'], $post['datePublished'], $post['headerImage'], $post['imageCaption'], $post['content'], $post['profilePic'], $post['firstName'], $post['surname']);
         }
 
         return $list;
         }
  
-        public static function update() {
-            $db = Db::getInstance();
-            $req = $db->prepare("UPDATE post set title=:title, content=:content, datePublished=:datePublished, headerImage=:headerImage, imageCaption=:imageCaption where postID=:postID");
-            $req->bindParam(':postID', $postID);
-            $req->bindParam(':title', $title);
-            $req->bindParam(':content', $content);
-            $req->bindParam(':datePublished', $datePublished);
-            $req->bindParam(':headerImage', $headerImage);
-            $req->bindParam(':imageCaption', $imageCaption);
+    public static function update() {
+        $db = Db::getInstance();
+        $req = $db->prepare("UPDATE post set title=:title, content=:content, datePublished=:datePublished, headerImage=:headerImage, imageCaption=:imageCaption where postID=:postID");
+        $req->bindParam(':postID', $postID);
+        $req->bindParam(':title', $title);
+        $req->bindParam(':content', $content);
+        $req->bindParam(':datePublished', $datePublished);
+        $req->bindParam(':headerImage', $headerImage);
+        $req->bindParam(':imageCaption', $imageCaption);
 
-            if(isset($_POST['title'])&& $_POST['title']!=""){
-                $filteredTitle = filter_input(INPUT_POST,'title', FILTER_SANITIZE_SPECIAL_CHARS);
-            }
-            if(isset($_POST['content'])&& $_POST['content']!=""){
-                $filteredContent = filter_input(INPUT_POST,'content', FILTER_SANITIZE_SPECIAL_CHARS);
-            }
-            $title = $filteredTitle;
-            $content = $filteredContent;
-            $req->execute();
+        if(isset($_POST['title'])&& $_POST['title']!=""){
+            $filteredTitle = filter_input(INPUT_POST,'title', FILTER_SANITIZE_SPECIAL_CHARS);
+        }
+        if(isset($_POST['content'])&& $_POST['content']!=""){
+            $filteredContent = filter_input(INPUT_POST,'content', FILTER_SANITIZE_SPECIAL_CHARS);
+        }
+        $title = $filteredTitle;
+        $content = $filteredContent;
+        $req->execute();
 
 
         if (!empty($_FILES[self::InputKey]['headerImage'])) {
@@ -95,48 +107,49 @@
     
      // CREATE A NEW POST & INSERT INTO DATABASE
     public static function create() {
-            $db = Db::getInstance();
-            $req = $db->prepare("INSERT INTO post(title, userID, content, datePublished, headerImage, imageCaption) VALUES (:title, :userID, :content, :datePublished, :headerImage, :imageCaption)");
-            $req->bindParam(':title', $title);
-            $req->bindParam(':userID', $userID);
-            $req->bindParam(':content', $content);
-            $req->bindParam(':datePublished', $datePublished);
-            $req->bindParam(':headerImage', $headerImage);
-            $req->bindParam(':imageCaption', $imageCaption);
+        $db = Db::getInstance();
+        $req = $db->prepare("INSERT INTO post(title, userID, content, datePublished, headerImage, imageCaption) VALUES (:title, :userID, :content, :datePublished, :headerImage, :imageCaption)");
+        $req->bindParam(':title', $title);
+        $req->bindParam(':userID', $userID);
+        $req->bindParam(':content', $content);
+        $req->bindParam(':datePublished', $datePublished);
+        $req->bindParam(':headerImage', $headerImage);
+        $req->bindParam(':imageCaption', $imageCaption);
 
-            if(isset($_POST['title'])&& $_POST['title']!=""){
-                $filteredTitle = filter_input(INPUT_POST,'title', FILTER_SANITIZE_SPECIAL_CHARS);
-            }
+        if(isset($_POST['title'])&& $_POST['title']!=""){
+            $filteredTitle = filter_input(INPUT_POST,'title', FILTER_SANITIZE_SPECIAL_CHARS);
+        }
 //            if(isset($_SESSION['userID'])&& $_POST['userID']!=""){
 //                $filteredUserID = filter_input(INPUT_POST,'userID', FILTER_SANITIZE_SPECIAL_CHARS);
 //            }
-            if(isset($_POST['content'])&& $_POST['content']!=""){
-                $filteredContent = filter_input(INPUT_POST,'content', FILTER_SANITIZE_SPECIAL_CHARS);
-            }
-            if(isset($_POST['datePublished'])&& $_POST['datePublished']!=""){
-                $filteredDatePublished = filter_input(INPUT_POST,'datePublished', FILTER_SANITIZE_SPECIAL_CHARS);
-            }
-            if(isset($_POST['imageCaption'])&& $_POST['imageCaption']!=""){
-                $filteredImageCaption = filter_input(INPUT_POST,'imageCaption', FILTER_SANITIZE_SPECIAL_CHARS);
-            }
-            $title = $filteredTitle;
-            $userID = $_POST['userID'];
+        if(isset($_POST['content'])&& $_POST['content']!=""){
+            $filteredContent = filter_input(INPUT_POST,'content', FILTER_SANITIZE_SPECIAL_CHARS);
+        }
+        if(isset($_POST['datePublished'])&& $_POST['datePublished']!=""){
+            $filteredDatePublished = filter_input(INPUT_POST,'datePublished', FILTER_SANITIZE_SPECIAL_CHARS);
+        }
+        if(isset($_POST['imageCaption'])&& $_POST['imageCaption']!=""){
+            $filteredImageCaption = filter_input(INPUT_POST,'imageCaption', FILTER_SANITIZE_SPECIAL_CHARS);
+        }
+        $title = $filteredTitle;
+        $userID = $_POST['userID'];
 //            $userID = $_SESSION["userID"];
-            $content = $filteredContent;
-            $datePublished = $filteredDatePublished;
-            $headerImage = ($_FILES['headerImage']['name']);
-            $imageCaption = $filteredImageCaption;
-            $req->execute();
+        $content = $filteredContent;
+        $datePublished = $filteredDatePublished;
+        $headerImage = ($_FILES['headerImage']['name']);
+        $imageCaption = $filteredImageCaption;
+        $req->execute();
 
 //            echo var_dump($headerImage);  SO CONFUSED BECAUSE VARD_DUMP SAYS IT IS A STRING
             
             Post::uploadFile($headerImage);
         }
-      
+    
+        // UPLOAD A FILE TO BOTH dB & OUR DIRECTORY
         const AllowedTypes = ['image/jpeg', 'image/jpg'];
         const InputKey = 'headerImage';
 
-        public static function uploadFile(string $headerImage) {
+    public static function uploadFile(string $headerImage) {
         if (empty($_FILES[self::InputKey])) {
             trigger_error("File Missing!");
         }
@@ -159,20 +172,14 @@
 	}
 }
 
-public static function remove($postID) {
+    // REMOVE A POST BY ID
+    public static function remove($postID) {
       $db = Db::getInstance();
       //make sure $id is an integer
       $postID = intval($postID);
       $req = $db->prepare('delete FROM post WHERE postID = :postID');
       // the query was prepared, now replace :id with the actual $id value
       $req->execute(array('postID' => $postID));
-  }
-
-
-
     }
-  
-  
-  
-  
 
+}

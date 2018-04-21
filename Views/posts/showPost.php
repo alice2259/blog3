@@ -79,19 +79,25 @@
             <!-- BLOG AUTHOR INFO - SIDE BAR -->
 
         <aside class="col-md-4 blog-sidebar">
-            <div class="p-3 mb-3 bg-light rounded">
-              <div><img class="img authorImage" src="Views/images/default/noImage.jpg">  
-                  <!-- WILL UPDATE WITH DYNAMIC PHP TO FIND CORRECT BLOGGER IMAGE  -->
-              </div>
-              <br>
-                <h4 class="font-italic">Author</h4>
-                <p class="mb-0">Etiam porta <em>sem malesuada magna</em> mollis euismod. Cras mattis consectetur purus sit amet fermentum. Aenean lacinia bibendum nulla sed consectetur.</p>
+          <div class="p-3 mb-3 bg-light rounded">
+            <div class="">
+              <?php 
+                $profileFile = 'Views/images/' . $post->profilePic;
+                    if(file_exists($profileFile)){
+                $profileImg = "<img class=\"img authorImage\" src='$profileFile'/>";
+                echo $profileImg;
+                    } else {
+                echo "<img class=\"img authorImage\" src='Views/images/default/noImage.jpg' width='150' />"; } ?>
+            </div>
+            <br>
+              <h4 class="font-italic text-center">Author: <?php echo($post->firstName) . " " . ($post->surname) ?> </h4>
+              <p class="my-2 text-center">Etiam porta <em>sem malesuada magna</em> mollis euismod. Cras mattis consectetur purus sit amet fermentum. Aenean lacinia bibendum nulla sed consectetur.</p>
             </div>
             
             <!-- THINK WILL CHNGE THIS TO OTHER POSTS BY SAME AUTHOR -->
 
             <div class="p-3">
-                <h4 class="font-italic">Archives</h4>
+                <h4 class="font-italic ">Archives</h4>
                 <ol class="list-unstyled mb-0">
                     <li><a href="#">March 2014</a></li>
                     <li><a href="#">February 2014</a></li>
@@ -124,4 +130,3 @@
 
     </main><!-- /.container -->
    </div>
-   

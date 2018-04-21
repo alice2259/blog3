@@ -29,8 +29,8 @@ session_start();
     
               
      public function logout() {
-//         session_start();
          session_destroy();
+         require_once 'Views/pages/home.php';
      }
         }
   

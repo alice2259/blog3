@@ -43,33 +43,6 @@ h1, h2, h3, h4, h5, h6 {
   }
 }
 
-/*.nav-scroller {
-  position: relative;
-  z-index: 2;
-  height: 2.75rem;
-  overflow-y: hidden;
-}
-
-.nav-scroller .nav {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-wrap: nowrap;
-  flex-wrap: nowrap;
-  padding-bottom: 1rem;
-  margin-top: -1px;
-  overflow-x: auto;
-  text-align: center;
-  white-space: nowrap;
-  -webkit-overflow-scrolling: touch;
-}
-
-.nav-scroller .nav-link {
-  padding-top: .75rem;
-  padding-bottom: .75rem;
-  font-size: .875rem;
-}*/
-
 .card-img-right {
   height: 100%;
   border-radius: 0 3px 3px 0;
@@ -118,9 +91,9 @@ h1, h2, h3, h4, h5, h6 {
   border-radius: 2rem;
 }
 
-/*
- * Blog posts
- */
+/* BLOG POSTS */
+
+
 .blog-post {
   margin-bottom: 4rem;
 }
@@ -227,14 +200,25 @@ ul {
   text-align: right;  
 }
 
+.homeLog {
+  padding: 4px;
+  margin: 0px;
+  background: #000;
+  text-align: right;
+  font-family: sans-serif;
+  color: #FFF;
+  font-size: 10px;
+}
+
+
 /* unvisited link   THESE WILL BE CHANGED! */
 a:link {
-    color: #FFF;
+    color: #304D6D;
 }
 
 /* visited link */
 a:visited {
-    color: darkslategrey;
+    color: #82A0BC;
 }
 
 /* mouse over link */
