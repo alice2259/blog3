@@ -8,7 +8,7 @@
         
         
          <a class="btn btn-secondary btn-lg" href="?controller=posts&action=createPost" role="button">Create Post</a>
-         <button type="button" class="btn btn-secondary btn-lg">Large button</button>
+         <a class="btn btn-secondary btn-lg" href="?controller=user&action=register" role="button">Register a new blogger</a>
          <button type="button" class="btn btn-secondary btn-lg">Large button</button>
          <div class=" jumbotron text-white rounded bg-light py-5">   
         </div>    

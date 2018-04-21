@@ -44,57 +44,54 @@
 //    if(isset($_POST['permissionsID'])&& $_POST['permissionsID']!=""){
 //        $permissionsID = $_POST['permissionsID'];
     
-   
-$firstName = $filteredFirstName;
-$surname = $filteredSurname;
-$email = $filteredEmail;
-$password = $filteredPassword;
-$permissionsID = $_POST['permissionsID'];
 
-$req->execute();
+    $firstName = $filteredFirstName;
+    $surname = $filteredSurname;
+    $email = $filteredEmail;
+    $password = $filteredPassword;
+    $permissionsID = $_POST['permissionsID'];
+
+    $req->execute();
     }
     
-public static function login() {
-    if (!empty($_POST)) {
-        $email = $_POST['email'];
-        $password = $_POST['password'];
-        $db = Db::getInstance();
-        $req = $db->prepare("SELECT * FROM userTable WHERE email='$email' AND password='$password'");
-        $req->execute();
-        $user = $req->fetch();
-        
-        if($user){
-            $loggedInUser = new User($user['firstName'], $user['surname'], $user['email'], $user['password'], $user['profilePic'], $user['permissionsID'] );
+    public static function login() {
+        if (!empty($_POST)) {
+            $email = $_POST['email'];
+            $password = $_POST['password'];
+            $db = Db::getInstance();
+            $req = $db->prepare("SELECT * FROM userTable WHERE email='$email' AND password='$password'");
+            $req->execute();
+            $user = $req->fetch();
 
-//      return new User($user['userID'], $user['firstName'], $user['surname'], $user['email'], $user['password'], $user['profilePic'], $user['permissionsID'] );
-            $_SESSION["firstName"] = $loggedInUser->firstName;
-            $_SESSION["surname"] = $loggedInUser->surname;
-            $_SESSION["email"] = $loggedInUser->email;
-            $_SESSION["password"] = $loggedInUser->password;
-            $_SESSION["profilePic"] = $loggedInUser->profilePic;
-            $_SESSION["permissionsID"] = $loggedInUser->permissionsID;
+            if($user){
+                $loggedInUser = new User($user['firstName'], $user['surname'], $user['email'], $user['password'], $user['profilePic'], $user['permissionsID'] );
 
-            user::checkPermissions($loggedInUser);
-            return $loggedInUser;
+    //      return new User($user['userID'], $user['firstName'], $user['surname'], $user['email'], $user['password'], $user['profilePic'], $user['permissionsID'] );
+                $_SESSION["firstName"] = $loggedInUser->firstName;
+                $_SESSION["surname"] = $loggedInUser->surname;
+                $_SESSION["email"] = $loggedInUser->email;
+                $_SESSION["password"] = $loggedInUser->password;
+                $_SESSION["profilePic"] = $loggedInUser->profilePic;
+                $_SESSION["permissionsID"] = $loggedInUser->permissionsID;
 
+                user::checkPermissionsSession($_SESSION);
+                return $loggedInUser;
+            }
+        }
+        else  {
+            throw new Exception('NOT LOGGED IN');
         }
     }
-    else  {
-        throw new Exception('NOT LOGGED IN');
-    }
-
-}
-        
-public static function checkPermissions($loggedInUser) {
-    if ($loggedInUser->permissionsID==2) {
-        require_once 'Views/pages/adminAccount.php';
-    }
-    else if ($loggedInUser->permissionsID==1)    {
-        require_once 'Views/pages/account.php';
-    }
-}
             
-            
+    public static function checkPermissionsSession($loggedInUser) {
+            if ($loggedInUser['permissionsID']==2) {
+            require_once 'Views/pages/adminAccount.php';
         }
+        else if ($loggedInUser['permissionsID']==1)    {
+            require_once 'Views/pages/account.php';
+        }
+    }
+}
+
 
 
