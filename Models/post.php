@@ -65,24 +65,20 @@
         if(isset($_POST['search'])){
             $input = $_POST['search'];
             
-            $sql = "SELECT DISTINCT post.postID, post.title, post.datePublished, post.headerImage, post.imageCaption, post.content, userTable.profilePic, userTable.firstName, " 
-            . "userTable.surname FROM post "
+            $sql = "SELECT DISTINCT post.postID, post.title, userTable.userID, post.datePublished, post.headerImage, post.imageCaption, post.content, userTable.profilePic, userTable.firstName, userTable.surname FROM post "
             . "INNER JOIN userTable ON post.userID=userTable.userID "  
             . "INNER JOIN post_Tag ON post.postID=post_Tag.postID "
             . "INNER JOIN tag ON post_Tag.tagID=tag.tagID "
             . "WHERE post.title LIKE '%".$input."%' "
             . "UNION "
-            . "SELECT DISTINCT post.postID, post.title, post.datePublished, post.headerImage, post.imageCaption, post.content, userTable.profilePic, userTable.firstName, " 
-            . "userTable.surname  " 
-            . "FROM post "
+            . "SELECT DISTINCT post.postID, post.title, userTable.userID, post.datePublished, post.headerImage, post.imageCaption, post.content, userTable.profilePic, userTable.firstName, userTable.surname FROM post "
+
             . "INNER JOIN userTable ON post.userID=userTable.userID "  
             . "INNER JOIN post_Tag ON post.postID=post_Tag.postID " 
             . "INNER JOIN tag ON post_Tag.tagID=tag.tagID " 
-            . "WHERE userTable.firstName LIKE '%".$input."%' "   
+            . "WHERE userTable.firstName LIKE '%".$input."%' "
             . "UNION " 
-            . "SELECT DISTINCT post.postID, post.title, post.datePublished, post.headerImage, post.imageCaption, post.content, userTable.profilePic, userTable.firstName, " 
-            . "userTable.surname "
-            . "FROM post "
+            . "SELECT DISTINCT post.postID, post.title, userTable.userID, post.datePublished, post.headerImage, post.imageCaption, post.content, userTable.profilePic, userTable.firstName, userTable.surname FROM post "
             . "INNER JOIN userTable ON post.userID=userTable.userID "  
             . "INNER JOIN post_Tag ON post.postID=post_Tag.postID "
             . "INNER JOIN tag ON post_Tag.tagID=tag.tagID "
@@ -95,7 +91,7 @@
         
         foreach($req->fetchAll() as $post) {
 
-        $list[] = new Post($post['postID'], $post['title'], $post['datePublished'], $post['headerImage'], $post['imageCaption'], $post['content'], $post['profilePic'], $post['firstName'], $post['surname']);
+        $list[] = new Post($post['postID'], $post['title'],$post['userID'], $post['datePublished'], $post['headerImage'], $post['imageCaption'], $post['content'], $post['profilePic'], $post['firstName'], $post['surname']);
 
         }
 
