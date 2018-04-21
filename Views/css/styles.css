@@ -230,3 +230,16 @@ a:hover {
 a:active {
     color: darkslategray;
 }
+
+/* showAll.php IMAGE GRID */
+
+.imageBox {
+
+  width: 300px;
+  height: auto;
+}
+
+#thumbnail {
+    height:auto;
+    width: 400px;
+}
