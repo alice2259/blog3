@@ -1,5 +1,3 @@
-<?php session_start();?>
-
 <p>Search Results</p>
 
 <?php foreach($searchPosts as $post) { ?>
