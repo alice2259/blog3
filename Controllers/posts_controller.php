@@ -62,5 +62,14 @@
             $posts = Post::all();
             require_once('views/posts/showAll.php');
       }
+      
+      
+  public function allComments() {
+      
+      $searchPosts = Comments::allComments();
+      require_once('views/posts/searchPost.php');
     }
+    }
+    
+  
   
