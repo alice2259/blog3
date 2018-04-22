@@ -189,7 +189,7 @@
         }
         
         $tempFile= $_FILES[self::InputKey]['tmp_name'];
-        $path = "/Applications/XAMPP/xamppfiles/htdocs/blog3/Views/images";
+        $path = "C:/xampp/htdocs/blog3/Views/images/";
 	$destinationFile = $path . $headerImage;
         
         if (!move_uploaded_file($tempFile, $destinationFile)) {

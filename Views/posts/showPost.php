@@ -31,7 +31,8 @@
                         <!-- CAPTION AND DATEE PUBLLISHED -->
                         
                     <h2 class="blog-post-title"><?php echo ($post->imageCaption); ?></h2>
-                     <p class="blog-post-meta">Published: <?php echo $post->datePublished; ?></a></p>
+                    <br>
+                     <p class="blog-post-meta">Date published: <?php echo $formatDate = date( 'dS F, Y', strtotime($post->datePublished));?></p>
                      <hr>
                      <br>
            
