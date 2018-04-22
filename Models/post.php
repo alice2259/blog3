@@ -26,8 +26,8 @@
       $this->surname        = $surname;
       
       // This just takes the weird 2018-04-22 date type My SQL gives us and assigns it back in a a nice date format
-      $formatDate = date( 'dS F, Y', strtotime($this->datePublished));
-      $this->datePublished  = $formatDate;
+//      $formatDate = date( 'dS F, Y', strtotime($this->datePublished));
+//      $this->datePublished  = $formatDate;
     }
 
     // DISPLAY ALL POSTS
@@ -100,8 +100,8 @@
  
     public static function update() {
         $db = Db::getInstance();
-        $req = $db->prepare("UPDATE post set title=:title, content=:content, datePublished=:datePublished, headerImage=:headerImage, imageCaption=:imageCaption where postID=:postID");
-        $req->bindParam(':postID', $postID);
+        $req = $db->prepare("UPDATE post SET title=:title, datePublished=:datePublished, content=:content, headerImage=:headerImage, imageCaption=:imageCaption WHERE post.postID=:id");
+        $req->bindParam(':id', $postID);
         $req->bindParam(':title', $title);
         $req->bindParam(':content', $content);
         $req->bindParam(':datePublished', $datePublished);
@@ -114,8 +114,17 @@
         if(isset($_POST['content'])&& $_POST['content']!=""){
             $filteredContent = filter_input(INPUT_POST,'content', FILTER_SANITIZE_SPECIAL_CHARS);
         }
+        if(isset($_POST['datePublished'])&& $_POST['datePublished']!=""){
+            $filteredDatePublished = filter_input(INPUT_POST,'datePublished', FILTER_SANITIZE_SPECIAL_CHARS);
+        }
+        if(isset($_POST['imageCaption'])&& $_POST['imageCaption']!=""){
+            $filteredImageCaption = filter_input(INPUT_POST,'imageCaption', FILTER_SANITIZE_SPECIAL_CHARS);
+        }
         $title = $filteredTitle;
+        $datePublished = $filteredDatePublished;
         $content = $filteredContent;
+        $headerImage = ($_FILES['headerImage']['name']);
+        $imageCaption = $filteredImageCaption;
         $req->execute();
 
 

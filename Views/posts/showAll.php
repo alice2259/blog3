@@ -11,7 +11,8 @@
    
 
     <div class="text-center gallery rounded col-3 px-2 py-1 m-4">
-        <p class="galleryDate mb-0" style="text-align: right;"><?php echo $post->datePublished ?></p>
+        <p class="galleryDate mb-0" style="font:15px 'Roboto', sans-serif; text-align: right;">
+            <?php echo $formatDate = date( 'dS F, Y', strtotime($post->datePublished));?></p>
       <a href='?controller=posts&action=showPost&id=<?php echo $post->postID ?>'>
         <?php $file = 'Views/images/' . $post->headerImage;
             if(file_exists($file)){
@@ -27,10 +28,10 @@
             <?php
               if(isset($_SESSION["firstName"])) { 
                   if($_SESSION['permissionsID']==1) {
-              ?> <div class="col-lg-2 ml-0 my-2"><a class="btn btn-secondary btn-sm" href="?controller=posts&action=updatePost" role="button">Update</a></div>
+              ?> <div class="col-lg-2 ml-0 my-2"><a class="btn btn-secondary btn-sm" href="?controller=posts&action=updatePost&id=<?php echo $post->postID ?>" role="button">Update</a></div>
               <?php   } else { ?>
-              <div class="ml-1 my-2"><a class="btn btn-secondary btn-sm text-white" href="?controller=posts&action=deletePost" role="button">Delete</a></div>
-              <div class="ml-1 my-2"><a class="btn btn-secondary btn-sm text-white" href="?controller=posts&action=updatePost" role="button">Update</a></div>
+              <div class="ml-1 my-2"><a class="btn btn-secondary btn-sm text-white" href="?controller=posts&action=deletePost&id=<?php echo $post->postID ?>" role="button">Delete</a></div>
+              <div class="ml-1 my-2"><a class="btn btn-secondary btn-sm text-white" href="?controller=posts&action=updatePost&id=<?php echo $post->postID ?>" role="button">Update</a></div>
               <?php } } ?>
               
         </div>

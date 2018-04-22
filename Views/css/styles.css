@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Barrio|Roboto');
+@import url('https://fonts.googleapis.com/css?family=Asap|Rajdhani|Roboto');
 
 body {
   font-family: Arial;
@@ -24,7 +24,7 @@ hr {
 }
 
 .blog-header-logo {
-  font-family: "Playfair Display", Georgia, "Times New Roman", serif;
+  font-family: "Playfair Display", Georgia, "Times New Roman", sans-serif;
   font-size: 2.25rem;
 }
 
@@ -138,13 +138,12 @@ img {
 .gallery a:active { color: #000; }
 
 .galleryCaption {
-    font: 30px 'Barrio', cursive;
+    font: 30px 'Rajdhani', sans-serif;
 }
 
 galleryDate {
     font-weight:bold;
-    text-align: left;
-    font: 15px 'Roboto', sans-serif;
+    font: 20px 'Roboto', sans-serif;
 }
 
 .portrait {
