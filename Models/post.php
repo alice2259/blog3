@@ -201,18 +201,7 @@
       $req->execute(array('postID' => $postID));
     }    
     
-    // DISPLAY LAST 7 POSTS
-    public static function populateHomepageHeader() {
-      $list = [];
-      $db = Db::getInstance();
-      $req = $db->query('SELECT post.*, userTable.firstName, userTable.surname, userTable.profilePic FROM post 
-                        INNER JOIN userTable ON post.userID=userTable.userID ORDER BY post.datePublished DESC LIMIT 1;');
 
-      foreach($req->fetchAll() as $post) {
-      $list[] = new Post($post['postID'], $post['title'], $post['userID'], $post['datePublished'], $post['headerImage'], $post['imageCaption'], $post['content'], $post['profilePic'], $post['firstName'], $post['surname']);
-      }
-      return $list;
-    }
     
     
 }
