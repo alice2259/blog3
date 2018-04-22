@@ -11,7 +11,7 @@
 </div>
     
 <div class="container">
-   
+ 
     <div class="img container-fluid jumbotron text-white rounded bg-dark py-5">
 
         <form class="form" action="" method="POST" enctype="multipart/form-data">
@@ -42,7 +42,7 @@
                 </div>
 
                 <!-- AUTHOR  (incase we can't do it from a session) -->
-                <div class="form-group col-sm-3 py-3">
+<!--                <div class="form-group col-sm-3 py-3">
                     <label for="author"></label>
                     <select class="form-control" name="userID" id="author">
                             <option>SELECT AUTHOR</option>
@@ -51,17 +51,22 @@
                             <option value="1">Jenna</option>
                             <option value="4"> Lucy</option>
                         </select>
-                </div>
+                </div>-->
 
                 <!-- UPLOAD IMAGE -->
+                <br>
                 <div class="form-group col-sm-3">
-                    <P>Upload an image</p>
+                    <h6>Upload an image:</h6>
+                    <div class="form-group col-sm bg-light rounded p-2" style="color: #000;">
+                        
                     <input  type="hidden" 
                             name="MAX_FILE_SIZE" 
                             value="10000000" />
-
+                    <br><br>
                     <input type="file" name="headerImage" value="send" required />
-                </div>    
+                </div> 
+                </div>
+            </div>
 
 
                 <!-- SUBMIT POST - BUTTON -->

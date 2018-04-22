@@ -160,8 +160,8 @@
             $filteredImageCaption = filter_input(INPUT_POST,'imageCaption', FILTER_SANITIZE_SPECIAL_CHARS);
         }
         $title = $filteredTitle;
-        $userID = $_POST['userID'];
-//            $userID = $_SESSION["userID"];
+//        $userID = $_POST['userID'];
+        $userID = $_SESSION['userID'];
         $content = $filteredContent;
         $datePublished = $filteredDatePublished;
         $headerImage = ($_FILES['headerImage']['name']);

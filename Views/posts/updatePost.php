@@ -53,8 +53,9 @@
                 </div>-->
 
                 <!-- UPLOAD IMAGE -->
-                <p>Current Title Image:</p>
-                <div class="form-group col-sm-3 bg-light rounded p-2" style="color: #000;">
+                <br>
+                <p>Current Title Image</p>
+                <div class="form-group col-sm-4 bg-light rounded p-2" style="color: #000;">
                     
                     <input  type="hidden" 
                             name="MAX_FILE_SIZE" 
@@ -68,7 +69,7 @@
             } else {
                 echo "<img src='Views/images/default/noImage.jpg' width='150' />"; } ?>
 
-                    <br><br>
+                    <br>
                     <p> Upload new file? </p>
                     <input type="file" name="headerImage" value="send" required />
                 </div>    

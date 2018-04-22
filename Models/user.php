@@ -8,14 +8,16 @@
     public $password;
     public $profilePic;
     public $permissionsID;
+    public $userID;
 
-    public function __construct($firstName, $surname, $email, $password, $profilePic, $permissionsID) {
+    public function __construct($firstName, $surname, $email, $password, $profilePic, $permissionsID, $userID) {
       $this->firstName      = $firstName;
       $this->surname        = $surname;
       $this->email          = $email;
       $this->password       = $password;
       $this->profilePic     = $profilePic;
       $this->permissionsID  = $permissionsID;
+      $this->userID         = $userID;
     }
     
     public static function checkPassword()  {
@@ -63,7 +65,7 @@
             $user = $req->fetch();
 
             if($user){
-                $loggedInUser = new User($user['firstName'], $user['surname'], $user['email'], $user['password'], $user['profilePic'], $user['permissionsID'] );
+                $loggedInUser = new User($user['firstName'], $user['surname'], $user['email'], $user['password'], $user['profilePic'], $user['permissionsID'], $user['userID']);
 
     //      return new User($user['userID'], $user['firstName'], $user['surname'], $user['email'], $user['password'], $user['profilePic'], $user['permissionsID'] );
                 $_SESSION["firstName"] = $loggedInUser->firstName;
@@ -72,6 +74,7 @@
                 $_SESSION["password"] = $loggedInUser->password;
                 $_SESSION["profilePic"] = $loggedInUser->profilePic;
                 $_SESSION["permissionsID"] = $loggedInUser->permissionsID;
+                $_SESSION["userID"] = $loggedInUser->userID;
 
                 user::checkPermissionsSession($_SESSION);
                 return $loggedInUser;
