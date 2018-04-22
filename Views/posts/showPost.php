@@ -1,4 +1,4 @@
-<?php session_start();?>
+<?php // session_start();?>
 
     <div class="container">
         <header class="blog-header py-3"></header>

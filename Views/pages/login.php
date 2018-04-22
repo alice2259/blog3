@@ -21,7 +21,7 @@
                 <label>Password</label>
             </p>
             <p>
-                <input class="w3-btn w3-pink" type="submit" value="Login">   
+                <input class="btn-outline-secondary" type="submit" value="Login">   
             </p>
         </form>
     </div>    

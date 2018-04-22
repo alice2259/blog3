@@ -1,5 +1,5 @@
 <?php
-session_start();
+//session_start();
   class UsersController {
     public function register() {
       if($_SESSION['permissionsID']==2){
