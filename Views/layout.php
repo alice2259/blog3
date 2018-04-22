@@ -53,11 +53,11 @@
         <!-- FOOTER -->
        
 <footer>
-    <div class="footer"     style="font-size: 16px;">
+    <div class="footer">
       <div class="social">SOCIAL MEDIA ICONS</div>
       <div id="wrapper" class="row justify-content-center">
                 
-          <div class="col-sm-4 f1" style="background-color: #FAC9B8">
+          <div class="col-sm-4 f1" style="background-color: #FAC9B8; font-size: 16px;">
                 <ul>
                     <li>Get our latest posts straight to your inbox!</li>
                     <li>subscriber box</li>
