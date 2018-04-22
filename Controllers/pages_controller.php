@@ -15,6 +15,10 @@
     public function adminAccount() {
       require_once('views/pages/adminAccount.php');
     }
+    
+    public function aboutUs ()  {
+        require_once 'views/pages/about.php';
+    }
  }
   
 ?>

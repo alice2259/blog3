@@ -10,6 +10,9 @@
         <link href="https://fonts.googleapis.com/css?family=Playfair+Display:700,900" rel="stylesheet">
         <link rel="stylesheet" href="views/css/styles.css">
         <link href="https://fonts.googleapis.com/css?family=Amatic+SC|Lato:300|Comfortaa:700|Rajdhani|Roboto" rel="stylesheet">
+        <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+        <link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-black.css">
+     
     </head>
     
     <body>
@@ -27,7 +30,7 @@
                           <a class="nav-link" href='?controller=posts&action=showAll'>Posts</a>
                         </li>
                         <li class="nav-item">
-                          <a class="nav-link" href="#">Link</a>
+                          <a class="nav-link" href="?controller=pages&action=aboutUs">About Us</a>
                         </li>
                         <li class="nav-item dropdown">
                           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -53,11 +56,11 @@
         <!-- FOOTER -->
        
 <footer>
-    <div class="footer"     style="font-size: 16px;">
+    <div class="footer">
       <div class="social">SOCIAL MEDIA ICONS</div>
       <div id="wrapper" class="row justify-content-center">
                 
-          <div class="col-sm-4 f1" style="background-color: #FAC9B8">
+          <div class="col-sm-4 f1" style="background-color: #FAC9B8; font-size: 16px;">
                 <ul>
                     <li>Get our latest posts straight to your inbox!</li>
                     <li>subscriber box</li>
