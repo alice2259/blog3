@@ -35,29 +35,29 @@
       }
       
     }
-    public function update() {
+    public function updatePost() {
         
       if($_SERVER['REQUEST_METHOD'] == 'GET'){
-          if (!isset($_GET['postID']))
+          if (!isset($_GET['id']))
         return call('pages', 'error');
 
         // we use the given id to get the correct product
-        $post = Post::find($_GET['postID']);
+        $post = Post::find($_GET['id']);
       
-        require_once('views/posts/showPost.php');
+        require_once('views/posts/updatePost.php');
         }
       else
           { 
-            $id = $_GET['postID'];
-            Post::update($postID);
+            $id = $_GET['id'];
+            Post::update($id);
                         
             $posts = Post::all();
             require_once('views/posts/showAll.php');
       }
       
     }
-    public function delete() {
-            Post::remove($_GET['postID']);
+    public function deletePost() {
+            Post::remove($_GET['id']);
             
             $posts = Post::all();
             require_once('views/posts/showAll.php');

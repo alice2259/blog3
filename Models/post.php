@@ -26,8 +26,8 @@
       $this->surname        = $surname;
       
       // This just takes the weird 2018-04-22 date type My SQL gives us and assigns it back in a a nice date format
-      $formatDate = date( 'dS F, Y', strtotime($this->datePublished));
-      $this->datePublished  = $formatDate;
+//      $formatDate = date( 'dS F, Y', strtotime($this->datePublished));
+//      $this->datePublished  = $formatDate;
     }
 
     // DISPLAY ALL POSTS
@@ -98,10 +98,10 @@
         return $list;
         }
  
-    public static function update() {
+    public static function update($id) {
         $db = Db::getInstance();
-        $req = $db->prepare("UPDATE post set title=:title, content=:content, datePublished=:datePublished, headerImage=:headerImage, imageCaption=:imageCaption where postID=:postID");
-        $req->bindParam(':postID', $postID);
+        $req = $db->prepare("UPDATE post SET title=:title, datePublished=:datePublished, content=:content, headerImage=:headerImage, imageCaption=:imageCaption WHERE postID=:id");
+        $req->bindParam(':id', $id);
         $req->bindParam(':title', $title);
         $req->bindParam(':content', $content);
         $req->bindParam(':datePublished', $datePublished);
@@ -114,8 +114,17 @@
         if(isset($_POST['content'])&& $_POST['content']!=""){
             $filteredContent = filter_input(INPUT_POST,'content', FILTER_SANITIZE_SPECIAL_CHARS);
         }
+        if(isset($_POST['datePublished'])&& $_POST['datePublished']!=""){
+            $filteredDatePublished = filter_input(INPUT_POST,'datePublished', FILTER_SANITIZE_SPECIAL_CHARS);
+        }
+        if(isset($_POST['imageCaption'])&& $_POST['imageCaption']!=""){
+            $filteredImageCaption = filter_input(INPUT_POST,'imageCaption', FILTER_SANITIZE_SPECIAL_CHARS);
+        }
         $title = $filteredTitle;
+        $datePublished = $filteredDatePublished;
         $content = $filteredContent;
+        $headerImage = ($_FILES['headerImage']['name']);
+        $imageCaption = $filteredImageCaption;
         $req->execute();
 
 
@@ -151,8 +160,8 @@
             $filteredImageCaption = filter_input(INPUT_POST,'imageCaption', FILTER_SANITIZE_SPECIAL_CHARS);
         }
         $title = $filteredTitle;
-        $userID = $_POST['userID'];
-//            $userID = $_SESSION["userID"];
+//        $userID = $_POST['userID'];
+        $userID = $_SESSION['userID'];
         $content = $filteredContent;
         $datePublished = $filteredDatePublished;
         $headerImage = ($_FILES['headerImage']['name']);
@@ -180,7 +189,7 @@
         }
         
         $tempFile= $_FILES[self::InputKey]['tmp_name'];
-        $path = "/Applications/XAMPP/xamppfiles/htdocs/blog3/Views/images";
+        $path = "C:/xampp/htdocs/blog3/Views/images/";
 	$destinationFile = $path . $headerImage;
         
         if (!move_uploaded_file($tempFile, $destinationFile)) {
@@ -192,13 +201,13 @@
 }
 
     // REMOVE A POST BY ID
-    public static function remove($postID) {
+    public static function remove($id) {
       $db = Db::getInstance();
       //make sure $id is an integer
-      $postID = intval($postID);
-      $req = $db->prepare('delete FROM post WHERE postID = :postID');
+      $id = intval($id);
+      $req = $db->prepare('DELETE FROM post WHERE postID = :id');
       // the query was prepared, now replace :id with the actual $id value
-      $req->execute(array('postID' => $postID));
+      $req->execute(array('id' => $id));
     }    
     
 

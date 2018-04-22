@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css?family=Asap|Rajdhani|Roboto');
+
 body {
   font-family: Arial;
   padding: 0px;
@@ -22,7 +24,7 @@ hr {
 }
 
 .blog-header-logo {
-  font-family: "Playfair Display", Georgia, "Times New Roman", serif;
+  font-family: "Playfair Display", Georgia, "Times New Roman", sans-serif;
   font-size: 2.25rem;
 }
 
@@ -115,6 +117,34 @@ img {
     display: block;  
     margin-left: auto;
     margin-right: auto ;
+}
+
+/* showAll.php IMAGE GRID */
+
+.imageBox {
+
+  width: 300px;
+  height: auto;
+}
+
+.gallery {
+    display: inline-block;
+    border: 3px solid #333333;
+    box-shadow: 10px 10px 5px grey;
+    min-width: 300px;
+}
+
+.gallery a:link { color: #000; }
+.gallery a:visited { color: #000; }
+.gallery a:active { color: #000; }
+
+.galleryCaption {
+    font: 30px 'Rajdhani', sans-serif;
+}
+
+galleryDate {
+    font-weight:bold;
+    font: 20px 'Roboto', sans-serif;
 }
 
 .portrait {
@@ -232,15 +262,7 @@ a:active {
     color: darkslategray;
 }
 
-/* showAll.php IMAGE GRID */
-
-.imageBox {
-
-  width: 300px;
-  height: auto;
-}
-
-#thumbnail {
-    height:auto;
-    width: 400px;
-}
+/*hide role-specific button html
+div.blogger, div.admin {
+display: none;
+}*/
