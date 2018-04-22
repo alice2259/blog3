@@ -13,14 +13,13 @@
  
     <!-- POST HEADER IMAGE -->
    
-    <div class="img container-fluid jumbotron text-white rounded bg-dark py-5">
-        <?php 
+    <div class="img container-fluid jumbotron text-white rounded py-5 header-image" style="background-image: url(<?php 
         $file = 'Views/images/' . $post->headerImage;
             if(file_exists($file)){
-                $img = "<img src='$file'/>";
+                $img = $file;
                 echo $img;
             } else {
-                echo "<img src='Views/images/default/noImage.jpg' width='150' />"; } ?>
+                echo 'Views/images/default/noImage.jpg'; } ?>); background-size: cover; background-repeat: no-repeat; background-position: 50% 50%;">
     </div> 
 
     <main role="main" class="container">  

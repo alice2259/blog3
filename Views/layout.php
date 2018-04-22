@@ -9,14 +9,14 @@
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
         <link href="https://fonts.googleapis.com/css?family=Playfair+Display:700,900" rel="stylesheet">
         <link rel="stylesheet" href="views/css/styles.css">
-        <link href="https://fonts.googleapis.com/css?family=Amatic+SC|Lato:300" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Amatic+SC|Lato:300|Comfortaa:700|Rajdhani|Roboto" rel="stylesheet">
     </head>
     
     <body>
         <!-- NAV BAR (nested in Header) -->
         <header>
-            <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-                <a class="navbar-brand" href='/blog3'>TIME TRAVEL</a>
+            <nav class="navbar navbar-expand-lg" style="background-color: #8DA1B9;">
+                <a class="navbar-brand" style="font: 19px 'Amatic', sans-serif; color:#fff" href='/blog3'>A TIME TRAVELLER'S LIFE</a>
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
                     </button>
@@ -53,29 +53,27 @@
         <!-- FOOTER -->
        
 <footer>
-  <div class="footer">
+    <div class="footer"     style="font-size: 16px;">
       <div class="social">SOCIAL MEDIA ICONS</div>
       <div id="wrapper" class="row justify-content-center">
                 
-            <div class="col-sm-4 f1">
+          <div class="col-sm-4 f1" style="background-color: #FAC9B8">
                 <ul>
-                    <li>BLOG LOGO?</li>
+                    <li>Get our latest posts straight to your inbox!</li>
                     <li>subscriber box</li>
+                    <li>button</li>
                 </ul>
             </div>
           
-            <div class="col-sm-4 f2">
+          <div class="col-sm-4 f2" style="background-color: #EDF5FF">
                 <ul>
-                    <li><a href='?controller=users&action=login'>Link</a></li>
-                    <li><a href='?controller=users&action=login'>Link</a></li>
-                    <li><a href='?controller=users&action=login'>Link</a></li>
                     <li><a href='?controller=users&action=login'>Staff Login</a></li>
                     <li><a href='?controller=users&action=logout'>Logout</a></li>
                 </ul>
             </div>
           
-            <div class="col-sm-4 f3">
-                <img class="authorImage" src="Views/images/default/noImage.jpg">
+            <div class="col-sm-4 f3" style="background-color: #EDF5FF">
+                <img class="authorImage" src="LOGO IMAGE HERE">
                 </ul>
             </div>
           </div>
