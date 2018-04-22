@@ -4,27 +4,34 @@
             <h1 class="display-4 font-italic">All Blog Posts</h1>
         </div>
     </div>
- 
+
+<!-- START OF FOREACH LOOP -->
+
 <div class="container-fluid">
   <div class="row justify-content-center">  
     <?php foreach ($posts as $post) { ?>
-   
 
-    <div class="text-center gallery rounded col-3 px-2 py-1 m-4">
-        <p class="galleryDate mb-0" style="font:15px 'Roboto', sans-serif; text-align: right;">
-            <?php echo $formatDate = date( 'dS F, Y', strtotime($post->datePublished));?></p>
-      <a href='?controller=posts&action=showPost&id=<?php echo $post->postID ?>'>
-        <?php $file = 'Views/images/' . $post->headerImage;
+      <div class="hoverBox text-center gallery rounded col-3 py-1 m-4" style="background-image: url(<?php 
+        $file = 'Views/images/' . $post->headerImage;
             if(file_exists($file)){
-                $img = "<img class=\"imageBox mb-2\" style=\"horizontal-align:middle;\" src='$file'/>";
+                $img = $file;
                 echo $img;
             } else {
-                echo "<img src='Views/images/default/noImage.jpg' class=\"imageBox\" width='100%'>"; } ?>
-          <b class="galleryCaption"><?php echo $post->title ?></b>
-          <br>
-        <div class="row flex-auto ml-0">
-      </a>   
-<!--HIDDEN BUTTONS DEPENDANT ON USER ACCESS-->
+                echo 'Views/images/default/noImage.jpg'; } ?>); background-size: cover; background-repeat: no-repeat; background-position: 50% 50%;"> 
+        <p class="galleryDate mb-0" style="font:15px 'Roboto', sans-serif; text-align: right;">
+        <div class="col date">    <?php echo $formatDate = date( 'dS F, Y', strtotime($post->datePublished));?></p> </div>
+        
+ <!-- GALLERY IMAGE TITLES -->
+ 
+    <div class="title col"><?php echo $post->title ?></b></div>
+        <div class="overlay"></div>
+        <div class="hoverButton"><a href="?controller=posts&action=showPost&id=<?php echo $post->postID ?>"> READ </a></div>
+        <br>
+    <div class="row flex-auto ml-0">
+         
+<!--HIDDEN BUTTONS DEPENDANT ON USER ACCESS--> 
+
+    <div class="secret row">
             <?php
               if(isset($_SESSION["firstName"])) { 
                   if($_SESSION['permissionsID']==1) {
@@ -34,9 +41,9 @@
               <button type="button" class="btn btn-primary btn-sm ml-1 my-2" data-toggle="modal" data-target="#deleteModal">Delete</button>
               <div class="ml-1 my-2"><a class="btn btn-secondary btn-sm text-white" href="?controller=posts&action=updatePost&id=<?php echo $post->postID ?>" role="button">Update</a></div>
               <?php } } ?>
-              
+    </div>
 
-     <!-- DELETE MODAL TO CHECK USER DEFINITELY WANT TO DELETE -->         
+<!-- DELETE MODAL TO CHECK USER DEFINITELY WANT TO DELETE -->         
               
               <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div class="modal-dialog" role="document">
@@ -60,9 +67,9 @@
         </div>
       </div>
     </a>
- 
 
-     <?php } ?> <!-- end of foreach-->
+     <?php } ?> <!-- END OF FOR EACH BRACKET -->
+    
     </div>
   </div>
 </div>
