@@ -98,10 +98,10 @@
         return $list;
         }
  
-    public static function update() {
+    public static function update($id) {
         $db = Db::getInstance();
-        $req = $db->prepare("UPDATE post SET title=:title, datePublished=:datePublished, content=:content, headerImage=:headerImage, imageCaption=:imageCaption WHERE post.postID=:id");
-        $req->bindParam(':id', $postID);
+        $req = $db->prepare("UPDATE post SET title=:title, datePublished=:datePublished, content=:content, headerImage=:headerImage, imageCaption=:imageCaption WHERE postID=:id");
+        $req->bindParam(':id', $id);
         $req->bindParam(':title', $title);
         $req->bindParam(':content', $content);
         $req->bindParam(':datePublished', $datePublished);
@@ -201,13 +201,13 @@
 }
 
     // REMOVE A POST BY ID
-    public static function remove($postID) {
+    public static function remove($id) {
       $db = Db::getInstance();
       //make sure $id is an integer
-      $postID = intval($postID);
-      $req = $db->prepare('delete FROM post WHERE postID = :postID');
+      $id = intval($id);
+      $req = $db->prepare('DELETE FROM post WHERE postID = :id');
       // the query was prepared, now replace :id with the actual $id value
-      $req->execute(array('postID' => $postID));
+      $req->execute(array('id' => $id));
     }    
     
     // DISPLAY LAST 7 POSTS

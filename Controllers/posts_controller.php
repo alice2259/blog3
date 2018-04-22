@@ -57,7 +57,7 @@
       
     }
     public function deletePost() {
-            Post::remove($_GET['postID']);
+            Post::remove($_GET['id']);
             
             $posts = Post::all();
             require_once('views/posts/showAll.php');
