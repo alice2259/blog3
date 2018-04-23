@@ -5,6 +5,19 @@ body {
   margin: 0px;
   text-align: left;
 }
+html,body {
+    height:100%;
+    margin-top: 50px;
+}
+
+/* NAVBAR STICKY PROPERTIES */
+.navbar { 
+   transition:all 0.2s linear; 
+}
+
+.affix {
+   top: -50px;  
+}
 
 .header-image    {
     display: block;
@@ -22,8 +35,8 @@ body {
 
 hr {
     display: block;
-    border: none;
-    height: 4px;
+    border: solid;
+    height: 10px;
     color: #000;
     background-color: #000;
     margin: 1em 0;
@@ -376,4 +389,10 @@ left: 20px;
 .hoverBox:hover .hoverButton {
   opacity: 1;
 } */
-  
+
+.searchResultBox {
+border-top: solid 2px #000;
+width: 1000px;
+margin: auto;
+}
+

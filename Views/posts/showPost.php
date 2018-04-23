@@ -52,7 +52,7 @@
             
             <!-- BLOG AUTHOR INFO - SIDE BAR -->
 
-        <aside class="col-md-4 blog-sidebar">
+        <aside class="col ml-5 p-0 blog-sidebar text-center">
           <div class="p-3 mb-3 bg-light rounded">
             <div class="">
               <?php 
@@ -64,8 +64,8 @@
                 echo "<img class=\"img authorImage\" src='Views/images/default/noImage.jpg' width='150' />"; } ?>
             </div>
             <br>
-              <h4 class="font-italic text-center">Author: <?php echo($post->firstName) . " " . ($post->surname) ?> </h4>
-              <p class="my-2 text-center">Etiam porta <em>sem malesuada magna</em> mollis euismod. Cras mattis consectetur purus sit amet fermentum. Aenean lacinia bibendum nulla sed consectetur.</p>
+            <h6 class="font-italic">Author:</h6>
+            <h4><b><?php echo($post->firstName) . " " . ($post->surname) ?></b> </h4>
             </div>
             
             <!-- THINK WILL CHNGE THIS TO OTHER POSTS BY SAME AUTHOR -->

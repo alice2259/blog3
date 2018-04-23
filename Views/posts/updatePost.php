@@ -71,7 +71,7 @@
 
                     <br>
                     <p> Upload new file? </p>
-                    <input type="file" name="headerImage" value="send" required />
+                    <input type="file" name="headerImage" value="send" />
                 </div>    
 
 
