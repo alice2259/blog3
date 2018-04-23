@@ -10,6 +10,10 @@ html,body {
     margin-top: 50px;
 }
 
+li:not(:last-child) { 
+    border-right:solid 1px #D8D5DB;   /* removed line border from last element in list  */
+}
+
 /* NAVBAR STICKY PROPERTIES */
 .navbar { 
    transition:all 0.2s linear; 
@@ -381,4 +385,58 @@ left: 20px;
 border-top: solid 2px #000;
 margin-left: 200px;
 margin-right: 200px;
+}
+
+
+
+/* HOME PAGE HOVER BOXES */
+
+.hoverBox2 {
+ 
+}
+
+.title2 {
+  font: 30px 'Rajdhani', sans-serif;
+  position: relative;
+  width: 300px;
+  left: 0;
+  top: 0px;
+  font-weight: 900;
+  font-size: 30px;
+  text-align: center;
+  text-transform: uppercase;
+  color: white;
+  z-index: 1;
+  transition: top .35s ease;
+  background-color: #82A0BC;
+  
+}
+
+.hoverBox2:hover .title2 {
+  top: 30px;
+  background-color: transparent;
+  border: solid 4px white;
+  border-radius: 2%;
+}
+
+.homepage-image:hover .overlay2 {
+  display: block;
+  background: rgba(0, 0, 0, .3);
+}
+
+.overlay2 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0);
+  transition: background 0.5s ease;
+}
+
+.caption {
+  border-bottom: 2px solid #333;
+  padding: 5px;
+  color: #FFF;
+  background-color: #82A0BC;
 }

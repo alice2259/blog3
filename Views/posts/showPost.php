@@ -27,12 +27,12 @@
             <div class="col-md-8 blog-main">
                 <div class="blog-post">
                           
-                        <!-- CAPTION AND DATEE PUBLLISHED -->
+                        <!-- CAPTION AND DATE PUBLLISHED -->
                         
                     <h2 class="blog-post-title"><?php echo ($post->imageCaption); ?></h2>
                     <br>
                      <p class="blog-post-meta">Date published: <?php echo $formatDate = date( 'dS F, Y', strtotime($post->datePublished));?></p>
-                     <hr>
+                     <hr class='line'>
                      <br>
            
                         <!-- POST CONTENT -->
@@ -52,7 +52,7 @@
             
             <!-- BLOG AUTHOR INFO - SIDE BAR -->
 
-        <aside class="col ml-5 p-0 blog-sidebar text-center">
+        <aside class="col p-0 blog-sidebar text-center">
           <div class="p-3 mb-3 bg-light rounded">
             <div class="">
               <?php 
@@ -64,39 +64,29 @@
                 echo "<img class=\"img authorImage\" src='Views/images/default/noImage.jpg' width='150' />"; } ?>
             </div>
             <br>
+            
             <h6 class="font-italic">Author:</h6>
             <h4><b><?php echo($post->firstName) . " " . ($post->surname) ?></b> </h4>
+            <hr class='line'>
             </div>
             
             <!-- THINK WILL CHNGE THIS TO OTHER POSTS BY SAME AUTHOR -->
 
             <div class="p-3">
-                <h4 class="font-italic ">Archives</h4>
-                <ol class="list-unstyled mb-0">
-                    <li><a href="#">March 2014</a></li>
-                    <li><a href="#">February 2014</a></li>
-                    <li><a href="#">January 2014</a></li>
-                    <li><a href="#">December 2013</a></li>
-                    <li><a href="#">November 2013</a></li>
-                    <li><a href="#">October 2013</a></li>
-                    <li><a href="#">September 2013</a></li>
-                    <li><a href="#">August 2013</a></li>
-                    <li><a href="#">July 2013</a></li>
-                    <li><a href="#">June 2013</a></li>
-                    <li><a href="#">May 2013</a></li>
-                    <li><a href="#">April 2013</a></li>
-                </ol>
-          </div>
+                <h4 class="font-italic" style="text-align: left;">Other Posts by:
+                    <br>
+                <?php echo($post->firstName) . " " . ($post->surname) ?></h4>
+            </div>
+            <div style="background-color: #aaa; height: 100px; width: 100%; padding: 20px;"></div><br>
+            <div style="background-color: #aaa; height: 100px; width: 100%; padding: 20px;"></div><br>
+            <div style="background-color: #aaa; height: 100px; width: 100%; padding: 20px;"></div><br>
+            
             
             <!-- SOCIAL MEDIA -->
 
           <div class="p-3">
             <h4 class="font-italic">Elsewhere</h4>
-            <ol class="list-unstyled">
-              <li><a href="#">GitHub</a></li>
-              <li><a href="#">Twitter</a></li>
-              <li><a href="#">Facebook</a></li>
-            </ol>
+            
           </div>
         </aside><!-- /.blog-sidebar -->
 

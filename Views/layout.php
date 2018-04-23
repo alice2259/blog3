@@ -18,7 +18,29 @@
     <body>
         <!-- NAV BAR (nested in Header) -->
       <header>
-        <nav class="navbar navbar-expand-lg fixed-top" style="background-color: #8DA1B9;">
+          
+        <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+          <a class="navbar-brand" href="/blog3">The Time Traveller's Life</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+
+        <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+          <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+            <li class="nav-item active">
+              <a class="nav-link" href="?controller=posts&action=showAll">All Expeditions</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="?controller=pages&action=aboutUs">Time Bandits</a>
+            </li>
+          </ul>
+            <form class="form-inline my-2 my-lg-0" action='?controller=posts&action=searchPost' method="POST">
+              <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" name="search">
+              <button class="btn btn-light btn-sm p-2" type="submit"><img style="height: 20px; width: 20px;" src="Views/images/default/magnif.png"></button>
+            </form>
+        </div>
+          </nav>
+<!--        <nav class="navbar navbar-expand-lg fixed-top" style="background-color: #8DA1B9;">
           <a class="navbar-brand" style="font: 19px 'Amatic', sans-serif; color:#fff" href='/blog3'>A TIME TRAVELLER'S LIFE</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
               <span class="navbar-toggler-icon"></span>
@@ -27,28 +49,18 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                   <ul class="navbar-nav mr-auto">
                     <li class="nav-item active">
-                      <a class="nav-link" href='?controller=posts&action=showAll'>Posts</a>
+                      <a class="nav-link" href='?controller=posts&action=showAll'>Show All Posts</a>
                     </li>
                     <li class="nav-item">
                       <a class="nav-link" href="?controller=pages&action=aboutUs">About Us</a>
                     </li>
-                    <li class="nav-item dropdown">
-                      <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Dropdown</a>
-                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                              <a class="dropdown-item" href="?controller=users&action=register">Register</a>
-                              <a class="dropdown-item" href="#">Link</a>
-                            <div class="dropdown-divider"></div>
-                              <a class="dropdown-item" href="#">Link</a>
-                            </div>
-                    </li>
                   </ul>
                   <form class="form-inline my-2 my-lg-0" action='?controller=posts&action=searchPost' method="POST">
                     <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" name="search">
-                      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                      <button class="btn btn-light btn-sm p-2" type="submit"><img style="height: 20px; width: 20px;" src="Views/images/default/magnif.png"></button>
                   </form>
                 </div>
-            </nav>
+            </nav>-->
         </header>
         
         <?php require_once('routes.php'); ?>
