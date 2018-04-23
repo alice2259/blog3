@@ -15,9 +15,6 @@ html,body {
    transition:all 0.2s linear; 
 }
 
-.affix {
-   top: -50px;  
-}
 
 .header-image    {
     display: block;
@@ -33,14 +30,14 @@ html,body {
 /*    overflow: scroll;*/
 }
 
-hr {
-    display: block;
-    border: solid;
-    height: 10px;
-    color: #000;
-    background-color: #000;
-    margin: 1em 0;
-    padding: 0;
+.line {
+width: 100%;
+height: 3px;
+margin-left: auto;
+margin-right: auto;
+background-color:#333;
+color:#333;
+border: 0 none;
 }
 
 .blog-header {
@@ -364,35 +361,24 @@ left: 20px;
   border-radius: 2%;
 }
 
-/* HOVER BUTTON WAS CUTE BUT DOESNT SHOW IN MOBILE VIEW */
-
-/*.hoverButton {
-  position: absolute;
+.readButton {
   width: 150px;
   top: 210px;
-  opacity: 0;
+  opacity: .5;
   transition: opacity .35s ease;
-  margin-left: 75px;
-}
-
-.hoverButton a {
-  width: 150px;
+  border: solid 2px #333;
   padding: 12px 40px;
-  text-align: center;
-  color: white;
-  border: solid 2px white;
-  border-radius: 5%;
-  z-index: 1;
-  background-color: #82A0BC;
+  text-align: right;
 }
 
-.hoverBox:hover .hoverButton {
+.readButton:hover {
   opacity: 1;
-} */
+  background-color: #FAC9B8;
+  color: #000;
+} 
 
 .searchResultBox {
 border-top: solid 2px #000;
-width: 1000px;
-margin: auto;
+margin-left: 200px;
+margin-right: 200px;
 }
-

@@ -13,7 +13,7 @@
       
 <a href="?controller=posts&action=showPost&id=<?php echo $post->postID ?>">
 
-      <div class="hoverBox text-center gallery rounded col-3 py-1 m-4" style="background-image: url(<?php 
+      <div class="hoverBox text-center gallery rounded" style="background-image: url(<?php 
         $file = 'Views/images/' . $post->headerImage;
             if(file_exists($file)){
                 $img = $file;
