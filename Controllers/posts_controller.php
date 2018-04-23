@@ -3,7 +3,7 @@
     public function showAll() {
       // we store all the posts in a variable
       $posts = Post::all();
-      require_once('views/posts/showAll.php');
+      require_once('Views/posts/showAll.php');
     }
 
     public function showPost() {
@@ -14,24 +14,24 @@
 
       // we use the given id to get the right post
       $post = Post::find($_GET['id']);
-      require_once('views/posts/showPost.php');
+      require_once('Views/posts/showPost.php');
     }
 
     public function searchPost() {
       
       $searchPosts = Post::search();
-      require_once('views/posts/searchPost.php');
+      require_once('Views/posts/searchPost.php');
     }
     
     public function createPost() {
       if($_SERVER['REQUEST_METHOD'] == 'GET'){
-          require_once('views/posts/create.php');
+          require_once('Views/posts/create.php');
       }
       else { 
             Post::create();
              
             $posts = Post::all();
-            require_once('views/posts/showAll.php');
+            require_once('Views/posts/showAll.php');
       }
       
     }
@@ -44,7 +44,7 @@
         // we use the given id to get the correct product
         $post = Post::find($_GET['postID']);
       
-        require_once('views/posts/showPost.php');
+        require_once('Views/posts/showPost.php');
         }
       else
           { 
@@ -52,7 +52,7 @@
             Post::update($postID);
                         
             $posts = Post::all();
-            require_once('views/posts/showAll.php');
+            require_once('Views/posts/showAll.php');
       }
       
     }
@@ -60,7 +60,7 @@
             Post::remove($_GET['postID']);
             
             $posts = Post::all();
-            require_once('views/posts/showAll.php');
+            require_once('Views/posts/showAll.php');
       }
     }
   

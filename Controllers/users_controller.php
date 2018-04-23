@@ -3,7 +3,7 @@ session_start();
   class UsersController {
     public function register() {
       if($_SESSION['permissionsID']==2){
-            require_once('views/users/register.php');
+            require_once('Views/users/register.php');
             if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             User::checkPassword();
             }
@@ -19,7 +19,7 @@ session_start();
         // else display a blank form for the user to login, run User::login function
         else {
             if ($_SERVER['REQUEST_METHOD'] == 'GET') {
-                require_once('views/pages/login.php'); }
+                require_once('Views/pages/login.php'); }
             else {
                 User::login();
                 } 

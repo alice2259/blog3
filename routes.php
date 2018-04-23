@@ -3,7 +3,7 @@
 
   function call($controller, $action) {
     // require the file that matches the controller name
-    require_once('controllers/' . $controller . '_controller.php');
+    require_once('Controllers/' . $controller . '_controller.php');
 
     // create a new instance of the needed controller
     switch($controller) {
@@ -13,13 +13,13 @@
   
       case 'posts':
         // we need the model to query the database later in the controller
-        require_once('models/post.php');
+        require_once('Models/post.php');
         $controller = new PostsController();
       break;
   
   case 'users':
         // we need the model to query the database later in the controller
-        require_once('models/user.php');
+        require_once('Models/user.php');
         $controller = new UsersController();
       break;
     }
