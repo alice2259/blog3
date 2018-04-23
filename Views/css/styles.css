@@ -158,11 +158,6 @@ img {
     font: 30px 'Rajdhani', sans-serif;
 }
 
-galleryDate {
-    font-weight:bold;
-    font: 20px 'Roboto', sans-serif;
-}
-
 .portrait {
     height: 80px;
     width: 30px;
@@ -316,10 +311,15 @@ left: 20px;
 
 .date {
   background-color: #82A0BC;
+  position: absolute;
+  right: 20px;
   top: 10px;
-  text-align: right;
+  text-align: center;
   color: white;
-  font-size: 15px;
+  font:16px 'Rajdhani', sans-serif;
+  font-weight: bold;
+  width: 175px;        
+  padding-top: 10px;
 }
 
 .hoverBox:hover .date {
@@ -332,7 +332,7 @@ left: 20px;
   position: relative;
   width: 300px;
   left: 0;
-  top: 20px;
+  top: 70px;
   font-weight: 900;
   font-size: 30px;
   text-align: center;
@@ -345,29 +345,35 @@ left: 20px;
 }
 
 .hoverBox:hover .title {
-  top: 90px;
+  top: 100px;
   background-color: transparent;
+  border: solid 4px white;
+  border-radius: 2%;
 }
 
-.hoverButton {
+/* HOVER BUTTON WAS CUTE BUT DOESNT SHOW IN MOBILE VIEW */
+
+/*.hoverButton {
   position: absolute;
-  width: 300px;
-  top: 230px;
+  width: 150px;
+  top: 210px;
   opacity: 0;
   transition: opacity .35s ease;
+  margin-left: 75px;
 }
 
 .hoverButton a {
-  width: 200px;
-  padding: 12px 48px;
+  width: 150px;
+  padding: 12px 40px;
   text-align: center;
   color: white;
   border: solid 2px white;
   border-radius: 5%;
   z-index: 1;
+  background-color: #82A0BC;
 }
 
 .hoverBox:hover .hoverButton {
   opacity: 1;
-  background-color: #82A0BC;
-}
+} */
+  

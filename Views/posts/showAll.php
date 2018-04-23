@@ -10,6 +10,8 @@
 <div class="container-fluid">
   <div class="row justify-content-center">  
     <?php foreach ($posts as $post) { ?>
+      
+<a href="?controller=posts&action=showPost&id=<?php echo $post->postID ?>">
 
       <div class="hoverBox text-center gallery rounded col-3 py-1 m-4" style="background-image: url(<?php 
         $file = 'Views/images/' . $post->headerImage;
@@ -18,15 +20,13 @@
                 echo $img;
             } else {
                 echo 'Views/images/default/noImage.jpg'; } ?>); background-size: cover; background-repeat: no-repeat; background-position: 50% 50%;"> 
-        <p class="galleryDate mb-0" style="font:15px 'Roboto', sans-serif; text-align: right;">
-        <div class="col date">    <?php echo $formatDate = date( 'dS F, Y', strtotime($post->datePublished));?></p> </div>
+        <div class="col date"><?php echo $formatDate = date( 'dS F, Y', strtotime($post->datePublished));?></p> </div>
         
  <!-- GALLERY IMAGE TITLES -->
  
     <div class="title col"><?php echo $post->title ?></b></div>
         <div class="overlay"></div>
-        <div class="hoverButton"><a href="?controller=posts&action=showPost&id=<?php echo $post->postID ?>"> READ </a></div>
-        <br>
+        <br> </a>
     <div class="row flex-auto ml-0">
          
 <!--HIDDEN BUTTONS DEPENDANT ON USER ACCESS--> 
