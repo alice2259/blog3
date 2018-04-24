@@ -12,7 +12,7 @@
         
         
          <a class="btn btn-secondary btn-lg" href="?controller=posts&action=createPost" role="button">Create Post</a>
-         <button type="button" class="btn btn-secondary btn-lg">Large button</button>
+<!--         <button type="button" class="btn btn-secondary btn-lg">Large button</button>-->
          <a class="btn btn-secondary btn-lg" href="?controller=users&action=logout" role="button">Logout</a>
          <div class=" jumbotron text-white rounded bg-light py-5">   
         </div>    
