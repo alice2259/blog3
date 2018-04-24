@@ -14,6 +14,8 @@
 
       // we use the given id to get the right post
       $post = Post::find($_GET['id']);
+      $comments = Comment::showComments($_GET['id']);
+//      $newComment = Comment::insertComment($_GET['id']);
       require_once('views/posts/showPost.php');
     }
 
@@ -64,12 +66,12 @@
       }
       
       
-  public function allComments() {
-      
-      $searchPosts = Comments::allComments();
-      require_once('views/posts/searchPost.php');
-    }
-    }
+//    public function insertComment() {
+//        $comment = Comment::insertComment($_GET['id']);
+//    }
+//    
+    
+  }
     
   
   
