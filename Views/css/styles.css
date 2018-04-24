@@ -193,6 +193,13 @@ img {
   border-radius: 50%;
 }
 
+.commentImage {
+  height: 75px;
+  width: 75px; 
+  border-radius: 50%;
+  border: 2px solid #333;
+}
+
 /* FOOTER FORMATTING */ 
 
 footer {
@@ -392,7 +399,10 @@ margin-right: 200px;
 /* HOME PAGE HOVER BOXES */
 
 .hoverBox2 {
- 
+/*  position: relative;
+  margin-top: 50px;
+  width: 450px;
+  height: 300px; */
 }
 
 .title2 {
@@ -439,4 +449,111 @@ margin-right: 200px;
   padding: 5px;
   color: #FFF;
   background-color: #82A0BC;
+}
+
+/* TITLE PAGE */
+
+.hero {
+    /* Sizing */
+    width: 100vw;
+    height: 100vh;
+    
+    /* Flexbox stuff */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    /* Text styles */
+    text-align: center;
+    color: white;
+    
+    /* Background styles */
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+.hero h1 {
+    /* Text styles */
+    font-size: 8rem;
+    font-family: 'Amatic SC', cursive;
+    margin-top: 0;
+    margin-bottom: 0.5em;
+}
+
+.hero h2 {
+    /* Text styles */
+    font-size: 3rem;
+    font-family: 'Rajdhani', san-serif;
+    margin-top: 0;
+    margin-bottom: 0.5em;
+}
+
+
+/*  HERO POST hover animation stuff */
+
+.hoverBox3 {
+/*  position: relative;
+  margin-top: 50px;
+  width: 1000px;
+  height: 500px; */
+}
+
+.title3 {
+  font: 50px 'Rajdhani', sans-serif;
+  position: relative;
+  width: 600px;
+  left: 50px;
+  top: 40px;
+  font-weight: 900;
+  text-align: center;
+  text-transform: uppercase;
+  color: white;
+  z-index: 1;
+  transition: top .35s ease;
+  background-color: #82A0BC;
+}
+
+.hoverBox3:hover .title3 {
+  top: 80px;
+  background-color: transparent;
+  border: solid 4px white;
+  border-radius: 2%;
+}
+
+.hoverBox3:hover .overlay3 {
+  display: block;
+  background: rgba(0, 0, 0, .3);
+}
+
+.overlay3 {
+/*  position: absolute;
+  top: 0;
+  left: 0;
+  width: 50%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0);*/
+  transition: background 0.5s ease;
+}
+
+.caption3 {
+  font: 20px 'lato', sans-serif;
+  position: relative;
+  width: 600px;
+  left: 100px;
+  top: 60px;
+  font-weight: 900;
+  text-align: center;
+  color: white;
+  z-index: 1;
+  transition: top .35s ease;
+  background-color: #82A0BC;
+}
+
+.hoverBox3:hover .caption3 {
+  top: 80px;
+  background-color: transparent;
+  border: solid 4px white;
+  border-radius: 2%;
 }

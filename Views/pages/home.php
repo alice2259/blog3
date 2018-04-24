@@ -1,3 +1,14 @@
+ 
+<section class="hero" style="background-image: linear-gradient(rgba(0, 0, 0, 0.5),rgba(0, 0, 0, 0.5)), url('Views/images/timeTravel2.jpg');">
+        <div class="hero-inner">
+            <h1>The Time Traveller's Life</h1>
+            <h2>Stories from time and space</h2>
+            <div><i class="fa fa-angle-double-down" style="font-size:70px; color:white"></i></div>
+            <div><i id="arrow2" class="fa" style="font-size:70px; color:white"></i></div>
+            <div></div>
+        </div>
+    </section>
+
 <?php
 
     $heroPost = [];
@@ -7,18 +18,16 @@
     
     foreach ($heroPost as $info)    { ?>
 
-<div class="header" style="padding:100px; background-image: url('Views/images/time_travel_wide.jpg'); background-size: cover; background-repeat: no-repeat; background-position: 50% 50%;">
-    <h1 style="text-align: center; font-family: 'Amatic SC', cursive; 
-        color: #FFF; text-shadow: 0px 0px 15px #333333; font-size: 80px">THE TIME TRAVELLER'S LIFE</h1>
-        <h3 style="text-align: center; color: #FFF; text-shadow: 0px 0px 15px #333333;">Stories from time and space</h3>
-</div>
 <div>
     <br>
     <br>
 </div>
-<div class="header container rounded homepage" style="padding:100px; background-image: url(<?php echo 'Views/images/' . $info['headerImage'];?>); background-size: cover; background-repeat: no-repeat; background-position: 50% 50%;">
-    <h2 style="text-align: center; color: #FFF; text-shadow: 0px 0px 15px #333333;"><a href="?controller=posts&action=showPost&id=<?php echo $info['postID'] ?>"><?php echo $info['title'];?></a></h2>
-    <h5 style="text-align: center; color: #FFF; text-shadow: 0px 0px 15px #333333;"><?php echo $info['imageCaption'];?></h5>
+<div class="col hoverBox3"> 
+<div class="header container rounded homepage" style="height:300px; background-image: url(<?php echo 'Views/images/' . $info['headerImage'];?>); background-size: cover; background-repeat: no-repeat; background-position: 50% 50%;">
+    <h2 class="title3" style="text-align: center; color: #FFF; text-shadow: 0px 0px 15px #333333;"><a href="?controller=posts&action=showPost&id=<?php echo $info['postID'] ?>"><?php echo $info['title'];?></a></h2>
+    <h5 class="caption3" style="text-align: center; color: #FFF; text-shadow: 0px 0px 15px #333333;"><?php echo $info['imageCaption'];?></h5>
+    <div class="overlay3"></div>
+</div>
 </div>
 
 <?php };

@@ -1,4 +1,7 @@
-<?php // session_start();?>
+<style>
+   table {border-collapse:collapse; table-layout:fixed; width:310px;}
+   table td {width:400px; word-wrap:break-word;}
+   </style>
 
     <div class="container">
         <header class="blog-header py-3"></header>
@@ -50,6 +53,10 @@
     </nav>
             </div>
             
+            
+            
+        
+            
             <!-- BLOG AUTHOR INFO - SIDE BAR -->
 
         <aside class="col p-0 blog-sidebar text-center">
@@ -91,6 +98,54 @@
         </aside><!-- /.blog-sidebar -->
 
       </div><!-- /.row -->
+      
+      
+      <!-- COMMENTS TABLE -->
+            
+        <div style='width:75%; display:table;  margin:0 auto;'>         
+    <table class="table table-striped justify-content-center">
+    
+      <?php foreach ($comments as $comment) { ?>
+    
+        <!--    TABLE ROW FOREACH SEARCH RESULT RETURNED -->
+        <tr class="row" style="margin:0 auto;">
+          <td class="ml-3" style="width:100px; padding-top:50px;"> 
+            <div> 
+                <img class='commentImage' src='Views/images/astro.png'>
+            </div>
+          </td>
+          <td class="col mr-5 ml-3">
+              <br> 
+              <h5><b><?php echo $comment->commenterName;?></b></h5>
+              <span style="font-size:12px;"><?php echo $commentDate = date( 'dS F, Y - h:ia', strtotime($comment->date)); ?></span>  
+              <hr class="line">
+              <p style="font-size:14px;"><?php echo $comment->comment; ?></p>
+              <br>                  
+          </td>
+        </tr>
+      <?php } ?>   <!-- END OF THE FOREACH LOOP -->
+    </table>
+           
+      <!-- INSERT COMMENT FORM -->       
+      
+    <div>
+        <p>Add Comment</p>
+      <form class="form justify-content-center" action="" method="POST">
+        <div class="form-group">
+          <div class="row">
+            <div class="col-sm-3">
+              <input type="text" class="form-control py-3" name="commenterName" placeholder="Name">
+            </div>
+            <div class="col-sm-3">
+              <input type="text" class="form-control py-3" name="comment" placeholder="Comment">
+            </div> 
+              <input type="button" value="Submit" action="submit">
+          
+      </div>  
+      
+        </div>        
+    </div>
+      
 
     </main><!-- /.container -->
    </div>
