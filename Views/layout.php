@@ -47,7 +47,7 @@
                     <!--SEARCH-->
                     <form class="form-inline my-2 my-lg-0" action='?controller=posts&action=searchPost' method="POST">
                         <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" name="search">
-                        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                        <button class="btn btn-outline-success my-2 my-sm-0" style="float: left" type="submit">Search</button>
                     </form>
                     
                 </div>
@@ -90,22 +90,25 @@
 <!-- RIGHT LOWER BOX ------------------------------------------------------------------------------------------------------------------------------------------ -->
             <!--<div class="form-control">-->    
                 <div class="col-sm-4 f3 row">
+                    
                     <h3>Contact us</h3>
                     <p>Drop us a message and we promise to get back to you within a day!</p>
                     <p><span class="glyphicon glyphicon-map-marker"></span>  Head Office, Leeds, UK </p>
                     <p><span class="glyphicon glyphicon-phone"></span>  0113 456 78910 <!--</p> <p>--> <span class="glyphicon glyphicon-envelope"></span>  timetrips@gmail.com</p>
                     
                     <form> 
+                    <!--Email-->
                         <div class="row form-group">
                             <input class="form-control" id="enteremail" name="enteremail" placeholder="Email..." type="text" required>
                         </div>
-
+                        
+                    <!--Message-->
                         <textarea class="form-control" id="message" name="message" placeholder="Message..." rows="4"></textarea>
-
+                        
+                    <!-- SEND - Why arn't you on the right-->
                         <div class="row form-group">
-                            <button class="btn btn-default pull-right" type="submit">Send</button>
+                            <button class="btn btn-default pull-right" style="float: right" type="submit">Send</button>
                         </div>
-
                     </form>
                 </div>   
             
@@ -126,16 +129,6 @@
                         <input class="form-control" id="name" name="name" placeholder="Email..." type="text" required>
                     </div>
                     
-                    <div class="col-sm-6 form-group">
-                        <select style="color:#9FA2B2" class="form-control">
-                            <option selected disabled>I need help with... </option>
-                            <option>Uploading a blog</option>
-                            <option>Editing a blog</option>
-                            <option>Reporting a blog</option>
-                            <option>Signing in</option>
-                            <option>Other...</option>
-                        </select>
-                    </div>
                 </div>
             
                 <textarea class="form-control" id="message" name="message" placeholder="Message..." rows="5"></textarea><br>
@@ -153,12 +146,26 @@
                         
                     
                 </div>
+              
+<!-- MAP ------------------------------------------------------------------------------------------------------------------------------------------ -->          
+                <!-- centering the map - align="" class="w3-center" style="text-align: center" do not work -->  
+                <div id="map" style="height:125px; width:100%;" ></div>           
+                <script >
+                    var map;
+                    function initMap() {
+                    map = new google.maps.Map(document.getElementById('map'), {
+                        center: {lat: 53.8008, lng: -1.5491},
+                        zoom: 13
+                        });
+                    }
+                </script> <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDrsthx6SjytN7X5hfwab5sINCwjwIATLg&callback=initMap" sync defer></script>
+<!-- CLOSE MAP ------------------------------------------------------------------------------------------------------------------------------------------ -->         
 <!-- COPYRIGHT ------------------------------------------------------------------------------------------------------------------------------------------ -->                
                 <div class="row w3-container" color="#8da1b9"> 
                     <!--align-content: left align-items: left; align-self: left-->
                     <p>Copyright &COPY; <?= date('Y'); ?></p>
                 </div>
-<!-- CLOSE COPYRIGHT ------------------------------------------------------------------------------------------------------------------------------------ -->               
+<!-- CLOSE COPYRIGHT ------------------------------------------------------------------------------------------------------------------------------------ -->            
             </div>
         </footer>
         
