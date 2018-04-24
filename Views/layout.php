@@ -58,16 +58,17 @@
 <footer>
     <div class="footer">
       <div class="social">SOCIAL MEDIA ICONS</div>
-      <div id="wrapper" class="row justify-content-center">
+      <div id="wrapper" class="">
                 
-          <div class="col-sm-4 f1" style="background-color: #FAC9B8; font-size: 16px;">
+          <div class="col-sm-4 f1" style="background-color: #FAC9B8; font-size: 16px;font-family: sans-serif; color: #fff;">
                 <ul>
-                    <li>Get our latest posts straight to your inbox!</li>
-                    <li>subscriber box</li>
-                    <li>button</li>
+                <li>Get our posts straight to your inbox!</li>
+                <input class="form-control mr-sm-2" type="text" placeholder="Email address" name="email" required>
+                <div
+                <button class="btn btn-outline-success my-1 my-sm-0" type="submit" value="Subscribe" >Subscribe</button>
+                </div>
                 </ul>
-            </div>
-          
+           </div>
           <div class="col-sm-4 f2" style="background-color: #EDF5FF">
                 <ul>
                     <li><a href='?controller=users&action=login'>Staff Login</a></li>
