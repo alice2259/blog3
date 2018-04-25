@@ -1,5 +1,5 @@
 <?php
-require_once ('Models/post.php');
+//require_once ('Models/post.php');
 
 class Comment extends Post {
 //    public $postID;

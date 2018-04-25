@@ -214,7 +214,7 @@ require_once ('Models/comment.php');
         }
         
         $tempFile= $_FILES[self::InputKey]['tmp_name'];
-        $path = "C:/xampp/htdocs/blog3/Views/images/";
+        $path = "Views/images/";
 	$destinationFile = $path . $headerImage;
         
         if (!move_uploaded_file($tempFile, $destinationFile)) {
